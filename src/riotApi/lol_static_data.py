@@ -37,3 +37,4 @@ def get_champion_info(id, region=region_default, **kwargs):
     :return: json data
     not counted in your Rate Limit.
     """
+    pass
