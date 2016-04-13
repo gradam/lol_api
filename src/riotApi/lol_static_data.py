@@ -27,14 +27,14 @@ def get_every_champions_info(region=region_default, **kwargs):
     check_response_code(response_code)
     return data.json()
 
-
-def get_champion_info(id, region=region_default, **kwargs):
-    """
-    https://developer.riotgames.com/api/methods#!/1055/3633
-    :param id: id of a champion
-    :param region: eg. eune
-    :param kwargs: optional parameters for LoL Api
-    :return: json data
-    not counted in your Rate Limit.
-    """
-    pass
+#
+# def get_champion_info(id, region=region_default, **kwargs):
+#     """
+#     https://developer.riotgames.com/api/methods#!/1055/3633
+#     :param id: id of a champion
+#     :param region: eg. eune
+#     :param kwargs: optional parameters for LoL Api
+#     :return: json data
+#     not counted in your Rate Limit.
+#     """
+#     pass
