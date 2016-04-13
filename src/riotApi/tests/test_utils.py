@@ -1,12 +1,18 @@
 import sys
 import os
-from unittest.mock import mock_open
+
+from requests import RequestException
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from riotApi.utils import get_api_key
+from riotApi.utils import check_response_code
 
 
-def test_get_api_key(mocker):
-    m = mock_open(read_data='wow@api%key*wow')
-    mocker.patch('builtins.open', m, create=True)
-    assert get_api_key() == 'wow@api%key*wow'
+def test_check_response_code():
+    check_response_code(200)
+
+    try:
+        check_response_code(500)
+    except RequestException:
+        pass
+    else:
+        raise AssertionError

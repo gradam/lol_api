@@ -1,9 +1,6 @@
 # encoding: utf-8
-from . import utils
+import os
 from collections import defaultdict
-
-
-api_key = utils.get_api_key()
 
 region_default = 'eune'
 
@@ -18,3 +15,6 @@ error_codes.update({
 })
 
 base_url = 'https://global.api.pvp.net'
+
+with open(os.path.join(os.path.dirname(__file__), 'api_key.txt'), 'r') as key_file:
+    api_key = key_file.readline()

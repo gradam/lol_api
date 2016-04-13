@@ -45,12 +45,3 @@ class TestGetEveryChampionsInfo:
         assert self.request_params['api_key'] == riotApi.api_key
         assert self.request_params['champData'] == 'all'
 
-    def test_error_code(self):
-        self.mock_request = MockRequest('some data', code=429)
-
-        try:
-            get_every_champions_info()
-        except requests.RequestException as error:
-            assert 'Rate limit exceeded' in error.args[0]
-        else:
-            raise AssertionError

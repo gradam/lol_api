@@ -1,9 +1,12 @@
 # encoding: utf-8
 import os
 
+import requests
 
-def get_api_key():
-    file_path = os.path.join(os.path.dirname(__file__), 'api_key.txt')
-    with open(file_path, 'r') as key_file:
-        key = key_file.readline()
-    return key
+from riotApi import error_codes
+
+
+def check_response_code(response_code):
+    if response_code != 200:
+        error_massage = 'Error code: {} - {}'.format(response_code, error_codes[response_code])
+        raise requests.RequestException(error_massage)
