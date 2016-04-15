@@ -10,12 +10,8 @@ from riotApi.utils import check_response_code, get_champion_info
 def test_check_response_code():
     check_response_code(200)
 
-    try:
+    with pytest.raises(Exception) as e_info:
         check_response_code(500)
-    except RequestException:
-        pass
-    else:
-        raise AssertionError
 
 
 class TestGetChampionInfo:
