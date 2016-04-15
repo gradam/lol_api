@@ -136,12 +136,3 @@ ID_to_name = {
 
 name_to_ID = {champ: ID for ID, champ in ID_to_name.items()}
 
-
-def get_champion_info(value):
-    Champ = namedtuple('Champion', ['ID', 'name'])
-    try:
-        ID = int(value)
-        return Champ(ID, ID_to_name[ID])
-    except ValueError:
-        name = value.lower()
-        return Champ(name_to_ID[name], name)
