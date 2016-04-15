@@ -7,7 +7,7 @@ import requests
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from riotApi import api_key, base_url
-from riotApi.lol_static_data import every_champions_info, champion_info
+from riotApi.lol_static_data import all_champions_info, champion_info, all_items_info, item_info
 
 
 class MockRequest:
@@ -56,7 +56,7 @@ class TestGetEveryChampionsInfo(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return every_champions_info(champData='all')
+        return all_champions_info(champData='all')
 
     def test_params(self, data):
         assert self.request_params['champData'] == 'all'
@@ -72,4 +72,24 @@ class TestGetChampionInfo(BaseTestClass):
     def test_params(self, data):
         assert self.request_params['champData'] == 'all'
 
-# class TestItemsInfo(BaseTestClass)
+
+class TestAllItemsInfo(BaseTestClass):
+    control_url = '{}/api/lol/static-data/eune/v1.2/item'.format(base_url)
+
+    @pytest.fixture()
+    def data(self):
+        return all_items_info(itemListData='all')
+
+    def test_params(self, data):
+        assert self.request_params['itemListData'] == 'all'
+
+
+class TestItemInfo(BaseTestClass):
+    control_url = '{}/api/lol/static-data/eune/v1.2/item'.format(base_url)
+
+    @pytest.fixture()
+    def data(self):
+        return item_info(item_id=1, itemListData='all')
+
+    def test_params(self, data):
+        assert self.request_params['itemListData'] == 'all'

@@ -1,7 +1,7 @@
 import sys
 import os
 
-from requests import RequestException
+import pytest
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from riotApi.utils import check_response_code, get_champion_info
