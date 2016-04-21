@@ -3,62 +3,129 @@
 import requests
 
 from riotApi._utils import region_default, base_url, api_versions
-from riotApi._utils import check_response_code
+from riotApi._base_api_class import BaseApiClass
 
 version = api_versions['lol-static-data']
 api_url = '{}/api/lol/static-data/'.format(base_url)
 
 
-class LolStaticData:
-    def __init__(self, api_key):
-        self.api_key = api_key
-
-    def _set_options(self, kwargs):
-        options = {'api_key': self.api_key}
-        options.update(kwargs)
-        return options
-
-    def _get_data(self, url, kwargs):
-        options = self._set_options(kwargs)
-        data = requests.get(url, params=options)
-        response_code = data.status_code
-        check_response_code(response_code)
-        return data
-
-    def all_champions_info(self, region=region_default, **kwargs):
+class LolStaticData(BaseApiClass):
+    def champions_all(self, region=region_default, **kwargs):
         """
         https://developer.riotgames.com/api/methods#!/1055/3633
-        :return: json data
         not counted in Rate Limit.
         """
         url = '{}{}/{}/champion'.format(api_url, region, version)
-        data = self._get_data(url, kwargs)
-        return data.json()
+        return self._get_data(url, kwargs)
 
-    def champion_info(self, champ_id, region=region_default, **kwargs):
+    def champion(self, champ_id, region=region_default, **kwargs):
         """
         https://developer.riotgames.com/api/methods#!/1055/3622
-        :return: json data
         not counted in Rate Limit.
         """
         url = '{}{}/{}/champion/{}'.format(api_url, region, version, champ_id)
-        data = self._get_data(url, kwargs)
-        return data.json()
+        return self._get_data(url, kwargs)
 
-    def all_items_info(self, region=region_default, **kwargs):
+    def items_all(self, region=region_default, **kwargs):
         """
         https://developer.riotgames.com/api/methods#!/1055/3621
-        :return: json data
+        not counted in Rate Limit.
         """
         url = '{}{}/{}/item'.format(api_url, region, version)
-        data = self._get_data(url, kwargs)
-        return data.json()
+        return self._get_data(url, kwargs)
 
-    def item_info(self, item_id, region=region_default, **kwargs):
+    def item(self, item_id, region=region_default, **kwargs):
         """
         https://developer.riotgames.com/api/methods#!/1055/3627
-        :return: json data
+        not counted in Rate Limit.
         """
         url = '{}{}/{}/item/{}'.format(api_url, region, version, item_id)
-        data = self._get_data(url, kwargs)
-        return data.json()
+        return self._get_data(url, kwargs)
+
+    def language_string(self, region=region_default, **kwargs):
+        """
+        https://developer.riotgames.com/api/methods#!/1055/3624
+        not counted in Rate Limit.
+        """
+        url = '{}{}/{}/language-string'.format(api_url, region, version)
+        return self._get_data(url, kwargs)
+
+    def languages(self, region=region_default, **kwargs):
+        """
+        https://developer.riotgames.com/api/methods#!/1055/3631
+        not counted to rate limit
+        """
+        url = '{}{}/{}/languages'.format(api_url, region, version)
+        return self._get_data(url, kwargs)
+
+    def maps(self, region=region_default, **kwargs):
+        """
+        https://developer.riotgames.com/api/methods#!/1055/3635
+        not counted to rate limit
+        """
+        url = '{}{}/{}/map'.format(api_url, region, version)
+        return self._get_data(url, kwargs)
+
+    def mastery_all(self, region=region_default, **kwargs):
+        """
+        https://developer.riotgames.com/api/methods#!/1055/3625
+        not counted to rate limit
+        """
+        url = '{}{}/{}/mastery'.format(api_url, region, version)
+        return self._get_data(url, kwargs)
+
+    def mastery(self, mastery_id, region=region_default, **kwargs):
+        """
+        https://developer.riotgames.com/api/methods#!/1055/3626
+        not counted to rate limit
+        """
+        url = '{}{}/{}/mastery/{}'.format(api_url, region, version, mastery_id)
+        return self._get_data(url, kwargs)
+
+    def realm(self, region=region_default, **kwargs):
+        """
+        https://developer.riotgames.com/api/methods#!/1055/3632
+        not counted to rate limit
+        """
+        url = '{}{}/{}/realm'.format(api_url, region, version)
+        return self._get_data(url, kwargs)
+
+    def rune_all(self, region=region_default, **kwargs):
+        """
+        https://developer.riotgames.com/api/methods#!/1055/3623
+        not counted to rate limit
+        """
+        url = '{}{}/{}/rune'.format(api_url, region, version)
+        return self._get_data(url, kwargs)
+
+    def rune(self, rune_id, region=region_default, **kwargs):
+        """
+        https://developer.riotgames.com/api/methods#!/1055/3629
+        not counted to rate limit
+        """
+        url = '{}{}/{}/rune/{}'.format(api_url, region, version, rune_id)
+        return self._get_data(url, kwargs)
+
+    def summoner_spell_all(self, region=region_default, **kwargs):
+        """
+        https://developer.riotgames.com/api/methods#!/1055/3634
+        not counted to rate limit
+        """
+        url = '{}{}/{}/summoner-spell'.format(api_url, region, version)
+        return self._get_data(url, kwargs)
+
+    def summoner_spell(self, summoner_spell_id, region=region_default, **kwargs):
+        """
+        https://developer.riotgames.com/api/methods#!/1055/3628
+        not counted to rate limit
+        """
+        url = '{}{}/{}/summoner-spell/{}'.format(api_url, region, version, summoner_spell_id)
+        return self._get_data(url, kwargs)
+
+    def versions(self, region=region_default, **kwargs):
+        """
+        https://developer.riotgames.com/api/methods#!/1055/3630
+        not counted to rate limit
+        """
+        url = '{}{}/{}/versions'.format(api_url, region, version)
+        return self._get_data(url, kwargs)

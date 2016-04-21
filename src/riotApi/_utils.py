@@ -5,6 +5,9 @@ import requests
 from collections import defaultdict, deque, namedtuple
 import time
 
+from riotApi.exceptions import RateLimitExceededError
+
+
 error_codes = defaultdict(lambda: 'Unknown error code', )
 
 error_codes.update({
@@ -99,11 +102,6 @@ api_versions = {
 }
 
 
-class RateLimitExceeded(Exception):
-    def __init__(self, *args, **kwargs):
-        Exception.__init__(self, *args, *kwargs)
-
-
 class RateLimitWatcher:
     def __init__(self, production):
         Limit = namedtuple('Limits', ['requests', 'seconds'])
@@ -115,17 +113,20 @@ class RateLimitWatcher:
             self.long_limit = Limit(requests=500, seconds=600)
         self.made_requests = deque(maxlen=self.long_limit.requests)
 
+    def add_request(self):
+        self.made_requests.append(time.time())
+
     def _reload(self):
         t = time.time() - 600
         while len(self.made_requests) > 0 and self.made_requests[0] > t:
             self.made_requests.popleft()
 
-    def add_request(self):
-        self.made_requests.append(time.time())
-
     def request_available(self):
         self._reload()
-        latest_short_requests = self.made_requests[self.short_limit.requests - 1]
+        try:
+            latest_short_requests = self.made_requests[self.short_limit.requests - 1]
+        except IndexError:
+            latest_short_requests = time.time()
         requests_limit = self.long_limit.requests
         if latest_short_requests > time.time() - 10 and len(self.made_requests) != requests_limit:
             return True
@@ -140,11 +141,11 @@ def check_response_code(response_code):
 
 
 def count_request(func):
-    def wrapper(*args, **kwargs):
-        if args[0].watcher.request_available():
-            args[0].watcher.add_request()
-            return func(*args, **kwargs)
+    def wrapper(self, *args, **kwargs):
+        if self.watcher.request_available():
+            self.watcher.add_request()
+            return func(self, *args, **kwargs)
         else:
-            raise RateLimitExceeded()
+            raise RateLimitExceededError
 
     return wrapper
