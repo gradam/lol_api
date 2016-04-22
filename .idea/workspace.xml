@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42c1197e-c8d9-4e3e-9b14-aefb7963e92a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/riotApi/_champion.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_utils.py" afterPath="$PROJECT_DIR$/src/riotApi/_utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/tests/test_utils.py" afterPath="$PROJECT_DIR$/src/riotApi/tests/test_utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_lol_static_data.py" afterPath="$PROJECT_DIR$/src/riotApi/_lol_static_data.py" />
     </list>
     <ignored path="league_of_legends.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,8 +41,8 @@
       <file leaf-file-name="_utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/riotApi/_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="109" column="15" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="15" />
+            <state relative-caret-position="175">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
                 <element signature="e#19#28#0" expanded="true" />
               </folding>
@@ -50,12 +50,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_utils.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/riotApi/tests/test_utils.py">
+      <file leaf-file-name="_base_api_class.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/riotApi/_base_api_class.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="54" column="50" selection-start-line="54" selection-start-column="50" selection-end-line="54" selection-end-column="50" />
-              <folding />
+            <state relative-caret-position="126">
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+              <folding>
+                <element signature="e#18#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_champion.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/riotApi/_champion.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+              <folding>
+                <element signature="e#18#83#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_lol_static_data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/riotApi/_lol_static_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+              <folding>
+                <element signature="e#18#83#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -70,6 +96,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Jakub Semik" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -93,7 +124,6 @@
         <option value="$PROJECT_DIR$/src/riotApi/_base_api_class.py" />
         <option value="$PROJECT_DIR$/src/riotApi/_rate_limit_watcher.py" />
         <option value="$PROJECT_DIR$/src/riotApi/__init__.py" />
-        <option value="$PROJECT_DIR$/src/riotApi/_lol_static_data.py" />
         <option value="$PROJECT_DIR$/src/riotApi/tests/test_client.py" />
         <option value="$PROJECT_DIR$/src/riotApi/tests/utils.py" />
         <option value="$PROJECT_DIR$/src/riotApi/exceptions.py" />
@@ -103,6 +133,8 @@
         <option value="$PROJECT_DIR$/src/riotApi/_utils.py" />
         <option value="$PROJECT_DIR$/src/riotApi/tests/test_lol_static_data.py" />
         <option value="$PROJECT_DIR$/src/riotApi/tests/test_utils.py" />
+        <option value="$PROJECT_DIR$/src/riotApi/_lol_static_data.py" />
+        <option value="$PROJECT_DIR$/src/riotApi/_champion.py" />
       </list>
     </option>
   </component>
@@ -204,28 +236,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="riotApi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="league_of_legends" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="league_of_legends" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="riotApi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -689,7 +699,14 @@
       <option name="project" value="LOCAL" />
       <updated>1460737102586</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixed Watcher class. 100% coverage">
+      <created>1461323079618</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1461323079618</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -767,7 +784,8 @@
     <MESSAGE value="tests for lol static data" />
     <MESSAGE value="work in progress" />
     <MESSAGE value="better tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="better tests" />
+    <MESSAGE value="fixed Watcher class. 100% coverage" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed Watcher class. 100% coverage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -776,7 +794,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/riotApi/static_info.py" />
     <entry file="file://$PROJECT_DIR$/src/riotApi/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1024,14 +1041,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/riotApi/_lol_static_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-224">
-          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/riotApi/tests/test_lol_static_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="564">
@@ -1039,14 +1048,6 @@
           <folding>
             <marker date="1461303166983" expanded="true" signature="18:39" placeholder="import ..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/riotApi/_base_api_class.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,21 +1081,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/riotApi/tests/test_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/riotApi/_base_api_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding>
+            <element signature="e#18#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/riotApi/_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="109" column="15" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="15" />
+        <state relative-caret-position="175">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
             <element signature="e#19#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/riotApi/tests/test_utils.py">
+    <entry file="file://$PROJECT_DIR$/src/riotApi/_lol_static_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="54" column="50" selection-start-line="54" selection-start-column="50" selection-end-line="54" selection-end-column="50" />
-          <folding />
+        <state relative-caret-position="365">
+          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+          <folding>
+            <element signature="e#18#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/riotApi/_champion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+          <folding>
+            <element signature="e#18#83#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
