@@ -21,32 +21,38 @@ def test_bad_response_code():
 
 class TestRateLimitWatcher:
 
-    @staticmethod
     @pytest.fixture
-    def watcher():
+    def watcher(self):
         return RateLimitWatcher(production=False)
 
-    @staticmethod
-    def test_add_request(watcher):
+    def test_add_request(self, watcher):
         watcher.add_request()
         assert len(watcher.made_requests) == 1
 
-    @staticmethod
-    def test_reload(watcher):
+    def test_reload(self, watcher):
         watcher.made_requests.append(time() - 900)
         watcher.made_requests.append(time())
         watcher._reload()
         assert len(watcher.made_requests) == 1
 
-    @staticmethod
-    def test_request_available(watcher):
+    def test_request_available(self, watcher):
         assert watcher.request_available() is True
 
-    @staticmethod
-    def test_request_unavailable(watcher):
+    def test_request_unavailable(self, watcher):
         for _ in range(500):
             watcher.add_request()
         assert watcher.request_available() is False
+
+    def test_short_request_unavailable(self, watcher):
+        for _ in range(10):
+            watcher.add_request()
+        assert watcher.request_available() is False
+
+    def test_production(self):
+        watcher = RateLimitWatcher(production=True)
+        for _ in range(40):
+            watcher.add_request()
+        assert watcher.request_available() is True
 
 
 class TestCountRequest:

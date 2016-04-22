@@ -118,7 +118,7 @@ class RateLimitWatcher:
 
     def _reload(self):
         t = time.time() - 600
-        while len(self.made_requests) > 0 and self.made_requests[0] > t:
+        while len(self.made_requests) > 0 and self.made_requests[0] < t:
             self.made_requests.popleft()
 
     def request_available(self):
@@ -126,9 +126,9 @@ class RateLimitWatcher:
         try:
             latest_short_requests = self.made_requests[self.short_limit.requests - 1]
         except IndexError:
-            latest_short_requests = time.time()
+            latest_short_requests = time.time() - 30
         requests_limit = self.long_limit.requests
-        if latest_short_requests > time.time() - 10 and len(self.made_requests) != requests_limit:
+        if latest_short_requests < time.time() - 10 and len(self.made_requests) != requests_limit:
             return True
         else:
             return False
