@@ -11,6 +11,7 @@ from riotApi.exceptions import RateLimitExceededError
 error_codes = defaultdict(lambda: 'Unknown error code', )
 
 error_codes.update({
+    204: 'no masteries found for given player id or player id and champion id combination.',
     400: 'Bad request',
     401: 'Unauthorized',
     404: 'Data not found',
@@ -103,7 +104,8 @@ api_versions = {
 
 
 class RateLimitWatcher:
-    def __init__(self, production):
+    def __init__(self, production, unlimited=False):
+        self.unlimited = unlimited
         Limit = namedtuple('Limits', ['requests', 'seconds'])
         if production:
             self.short_limit = Limit(requests=3000, seconds=10)
@@ -123,6 +125,8 @@ class RateLimitWatcher:
 
     def request_available(self):
         self._reload()
+        if self.unlimited:
+            return True
         try:
             latest_short_requests = self.made_requests[self.short_limit.requests - 1]
         except IndexError:
@@ -149,3 +153,11 @@ def count_request(func):
             raise RateLimitExceededError
 
     return wrapper
+
+
+def get_champion_id(value):
+    try:
+        value = int(value)
+        return value
+    except ValueError:
+        pass

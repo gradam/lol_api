@@ -1,47 +1,17 @@
 # encoding: utf-8
 import sys
 import os
-import json
 
 import pytest
-import requests
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from riotApi._utils import base_url
-from riotApi._lol_static_data import LolStaticData
+from riotApi import Client
 
-from riotApi.tests.utils import MockRequest
-
-static_api = LolStaticData('test_key')
-
-test_json = {'3': "bb", "a": 4}
+from riotApi.tests.utils import test_api_key, BaseTestClass
 
 
-class BaseTestClass:
-    control_url = ''
-
-    @pytest.fixture(autouse=True)
-    def mock_request_get(self, monkeypatch):
-        monkeypatch.setattr(requests, 'get', self.get_mock_func)
-
-    @pytest.fixture(autouse=True)
-    def setup(self):
-        self.request_params = {}
-        self.mock_request = MockRequest(test_json)
-
-    def get_mock_func(self, url, **kwargs):
-        self.requested_url = url
-        self.request_params = (kwargs['params'])
-        return self.mock_request
-
-    def test_api_key(self, data):
-        assert self.request_params['api_key'] == static_api.api_key
-
-    def test_response_data(self, data):
-        assert data == test_json
-
-    def test_requested_url(self, data):
-        assert self.requested_url == self.control_url
+static_api = Client(test_api_key, unlimited=True).LolStaticData
 
 
 class TestChampionsAll(BaseTestClass):

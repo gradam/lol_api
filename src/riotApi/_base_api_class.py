@@ -6,8 +6,9 @@ from riotApi._utils import check_response_code
 
 
 class BaseApiClass:
-    def __init__(self, api_key):
+    def __init__(self, api_key, watcher):
         self.api_key = api_key
+        self.watcher = watcher
 
     def _set_options(self, kwargs):
         options = {'api_key': self.api_key}

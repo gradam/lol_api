@@ -3,9 +3,11 @@
     <words>
       <w>aram</w>
       <w>bilgewater</w>
+      <w>championmastery</w>
       <w>cooldown</w>
       <w>eune</w>
       <w>firstblood</w>
+      <w>hampionmastery</w>
       <w>hexakill</w>
       <w>matchlist</w>
       <w>monkeypatch</w>
@@ -13,6 +15,7 @@
       <w>poro</w>
       <w>premade</w>
       <w>snowdown</w>
+      <w>topchampions</w>
     </words>
   </dictionary>
 </component>

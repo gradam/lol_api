@@ -2,15 +2,12 @@
 from unittest.mock import mock_open
 
 import pytest
-import requests
 
-from riotApi._local_data import LocalData
-from riotApi._lol_static_data import LolStaticData
-
-from riotApi.tests.utils import mock_request_get
+from riotApi.tests.utils import test_api_key, mock_request_get
+from riotApi import Client
 
 
-static = LolStaticData('key')
+local_data = Client(test_api_key, unlimited=True).LocalData
 
 
 def raise_file_exists_error(path):
@@ -26,9 +23,6 @@ def mock_open_func(mocker):
 @pytest.fixture(autouse=True)
 def mock_mkdir(mocker):
     mocker.patch('os.mkdir', lambda path: None, create=True)
-
-
-local_data = LocalData(static)
 
 
 def test_renew_champions_info():
