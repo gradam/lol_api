@@ -6,12 +6,6 @@ import requests
 test_api_key = 'test_key'
 
 
-def fake_count(func):
-    def wrapper(*args, **kwargs):
-        return func(*args, **kwargs)
-    return wrapper
-
-
 class BaseTestClass:
     control_url = ''
     test_json = {'3': "bb", "a": 4}

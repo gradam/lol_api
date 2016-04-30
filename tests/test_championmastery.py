@@ -5,7 +5,6 @@ import os
 import pytest
 from tests.utils import test_api_key, BaseTestClass
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from riotApi._utils import base_url
 from riotApi import Client
 

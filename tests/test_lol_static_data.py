@@ -1,21 +1,18 @@
 # encoding: utf-8
-import sys
-import os
-
 import pytest
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from riotApi._utils import base_url
+from riotApi._utils import base_url, api_versions
 from riotApi import Client
 
 from tests.utils import test_api_key, BaseTestClass
 
 
 static_api = Client(test_api_key, unlimited=True).LolStaticData
+api_url = '{}/api/lol/static-data/eune/{}'.format(base_url, api_versions['lol-static-data'])
 
 
 class TestChampionsAll(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/champion'.format(base_url)
+    control_url = '{}/champion'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -26,7 +23,7 @@ class TestChampionsAll(BaseTestClass):
 
 
 class TestChampion(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/champion/1'.format(base_url)
+    control_url = '{}/champion/1'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -37,7 +34,7 @@ class TestChampion(BaseTestClass):
 
 
 class TestItemsAll(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/item'.format(base_url)
+    control_url = '{}/item'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -48,7 +45,7 @@ class TestItemsAll(BaseTestClass):
 
 
 class TestItem(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/item/1'.format(base_url)
+    control_url = '{}/item/1'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -59,7 +56,7 @@ class TestItem(BaseTestClass):
 
 
 class TestLanguageString(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/language-string'.format(base_url)
+    control_url = '{}/language-string'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -70,7 +67,7 @@ class TestLanguageString(BaseTestClass):
 
 
 class Test(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/languages'.format(base_url)
+    control_url = '{}/languages'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -78,7 +75,7 @@ class Test(BaseTestClass):
 
 
 class TestMaps(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/map'.format(base_url)
+    control_url = '{}/map'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -89,7 +86,7 @@ class TestMaps(BaseTestClass):
 
 
 class TestMasteryAll(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/mastery'.format(base_url)
+    control_url = '{}/mastery'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -100,7 +97,7 @@ class TestMasteryAll(BaseTestClass):
 
 
 class TestMastery(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/mastery/1'.format(base_url)
+    control_url = '{}/mastery/1'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -111,7 +108,7 @@ class TestMastery(BaseTestClass):
 
 
 class TestRealm(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/realm'.format(base_url)
+    control_url = '{}/realm'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -119,7 +116,7 @@ class TestRealm(BaseTestClass):
 
 
 class TestRuneAll(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/rune'.format(base_url)
+    control_url = '{}/rune'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -130,7 +127,7 @@ class TestRuneAll(BaseTestClass):
 
 
 class TestRune(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/rune/1'.format(base_url)
+    control_url = '{}/rune/1'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -141,7 +138,7 @@ class TestRune(BaseTestClass):
 
 
 class TestSummonerSpellAll(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/summoner-spell'.format(base_url)
+    control_url = '{}/summoner-spell'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -152,7 +149,7 @@ class TestSummonerSpellAll(BaseTestClass):
 
 
 class TestSummonerSpell(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/summoner-spell/22'.format(base_url)
+    control_url = '{}/summoner-spell/22'.format(api_url)
 
     @pytest.fixture()
     def data(self):
@@ -163,7 +160,7 @@ class TestSummonerSpell(BaseTestClass):
 
 
 class TestVersions(BaseTestClass):
-    control_url = '{}/api/lol/static-data/eune/v1.2/versions'.format(base_url)
+    control_url = '{}/versions'.format(api_url)
 
     @pytest.fixture()
     def data(self):

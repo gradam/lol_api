@@ -161,3 +161,4 @@ def get_champion_id(value):
         return value
     except ValueError:
         pass
+    # TODO: get champion ID from name
