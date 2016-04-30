@@ -8,7 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.
 from riotApi._utils import base_url
 from riotApi import Client
 
-from riotApi.tests.utils import test_api_key, BaseTestClass
+from tests.utils import test_api_key, BaseTestClass
 
 
 static_api = Client(test_api_key, unlimited=True).LolStaticData

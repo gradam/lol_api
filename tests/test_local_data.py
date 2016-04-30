@@ -3,7 +3,7 @@ from unittest.mock import mock_open
 
 import pytest
 
-from riotApi.tests.utils import test_api_key, mock_request_get
+from tests.utils import test_api_key, mock_request_get
 from riotApi import Client
 
 

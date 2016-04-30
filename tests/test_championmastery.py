@@ -3,14 +3,14 @@ import sys
 import os
 
 import pytest
-from riotApi.tests.utils import test_api_key, BaseTestClass
+from tests.utils import test_api_key, BaseTestClass
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from riotApi._utils import base_url
 from riotApi import Client
 
 
-championmastery = Client('test_key', unlimited=True).championmastery
+championmastery = Client(test_api_key, unlimited=True).championmastery
 
 
 class TestChampionMaster(BaseTestClass):
