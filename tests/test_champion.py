@@ -7,7 +7,7 @@ from riotApi import Client
 from riotApi._utils import base_url, api_versions
 
 
-champion_api = Client(test_api_key, unlimited=True).champion
+champion_api = Client(test_api_key, unlimited=True).Champion
 api_url = '{}/api/lol/eune/{}'.format(base_url, api_versions['champion'])
 
 

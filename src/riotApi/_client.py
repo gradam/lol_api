@@ -4,6 +4,7 @@ from riotApi._local_data import LocalData
 from riotApi._utils import RateLimitWatcher
 from riotApi._championmastery import ChampionMastery
 from riotApi._champion import Champion
+from riotApi._current_game import CurrentGame
 
 
 class Client:
@@ -12,5 +13,6 @@ class Client:
         self.watcher = RateLimitWatcher(production, unlimited=unlimited)
         self.LolStaticData = LolStaticData(api_key, self.watcher)
         self.LocalData = LocalData(self.LolStaticData)
-        self.championmastery = ChampionMastery(self.api_key, self.watcher)
-        self.champion = Champion(self.api_key, self.watcher)
+        self.Championmastery = ChampionMastery(self.api_key, self.watcher)
+        self.Champion = Champion(self.api_key, self.watcher)
+        self.CurrentGame = CurrentGame(self.api_key, self.watcher)

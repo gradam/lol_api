@@ -6,7 +6,7 @@ import pytest
 import requests
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from riotApi._utils import check_response_code, RateLimitWatcher, count_request
+from riotApi._utils import check_response_code, RateLimitWatcher, count_request, get_champion_id
 from riotApi.exceptions import RateLimitExceededError
 
 
@@ -81,3 +81,10 @@ class TestCountRequest:
             self.api_func()
         with pytest.raises(RateLimitExceededError):
             self.api_func()
+
+
+def test_get_champion_id():
+    assert get_champion_id(5) == 5
+
+    with pytest.raises(NotImplementedError):
+        get_champion_id('annie')

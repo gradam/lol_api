@@ -14,6 +14,7 @@ error_codes.update({
     204: 'no masteries found for given player id or player id and champion id combination.',
     400: 'Bad request',
     401: 'Unauthorized',
+    403: 'Forbidden',
     404: 'Data not found',
     429: 'Rate limit exceeded',
     500: 'Internal server error',
@@ -160,5 +161,5 @@ def get_champion_id(value):
         value = int(value)
         return value
     except ValueError:
-        pass
+        raise NotImplementedError
     # TODO: get champion ID from name

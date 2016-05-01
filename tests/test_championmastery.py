@@ -1,7 +1,4 @@
 # encoding: utf-8
-import sys
-import os
-
 import pytest
 from tests.utils import test_api_key, BaseTestClass
 
@@ -9,7 +6,7 @@ from riotApi._utils import base_url
 from riotApi import Client
 
 
-championmastery = Client(test_api_key, unlimited=True).championmastery
+championmastery = Client(test_api_key, unlimited=True).Championmastery
 
 
 class TestChampionMaster(BaseTestClass):
