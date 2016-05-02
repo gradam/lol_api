@@ -9,7 +9,9 @@ import requests
 from riotApi.data import error_codes
 from riotApi.exceptions import RateLimitExceededError
 
+
 directory = os.path.dirname(os.path.realpath(__file__))
+base_url = 'https://global.api.pvp.net'
 
 
 class RateLimitWatcher:
@@ -70,7 +72,7 @@ def get_champion_id(value):
         return value
     except ValueError:
         raise NotImplementedError
-    # TODO: get champion ID from name
+        # TODO: get champion ID from name
 
 
 def to_comma_separated(ids):
@@ -82,4 +84,3 @@ def to_comma_separated(ids):
         return ','.join([str(x) for x in ids])
 
 
-base_url = 'https://global.api.pvp.net'
