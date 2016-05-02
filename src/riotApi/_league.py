@@ -1,20 +1,13 @@
 # encoding: utf-8
 from riotApi._utils import region_default, base_url, api_versions
 from riotApi._base_api_class import BaseApiClass
-from riotApi._utils import count_request
+from riotApi._utils import count_request, to_comma_separated
 
 version = api_versions['league']
 api_url = '{}/api/lol/'.format(base_url)
 
 
 class League(BaseApiClass):
-
-    @staticmethod
-    def get_ids_string(ids):
-        if isinstance(ids, str):
-            return ids
-        else:
-            return ','.join([str(x) for x in ids])
 
     @count_request
     def by_summoners(self, summoner_ids, region=region_default, **kwargs):
@@ -23,7 +16,7 @@ class League(BaseApiClass):
         https://developer.riotgames.com/api/methods#!/985/3351
         :param summoner_ids: can be both list or string in valid format
         """
-        ids = self.get_ids_string(summoner_ids)
+        ids = to_comma_separated(summoner_ids)
         url = '{}{}/{}/league/by-summoner/{}'.format(api_url, region, version, ids)
         return self._get_data(url, **kwargs)
 
@@ -34,7 +27,7 @@ class League(BaseApiClass):
         https://developer.riotgames.com/api/methods#!/985/3356
         :param summoner_ids: can be both list or string in valid formats
         """
-        ids = self.get_ids_string(summoner_ids)
+        ids = to_comma_separated(summoner_ids)
         url = '{}{}/{}/league/by-summoner/{}/entry'.format(api_url, region, version, ids)
         return self._get_data(url, **kwargs)
 
@@ -45,7 +38,7 @@ class League(BaseApiClass):
         https://developer.riotgames.com/api/methods#!/985/3352
         :param team_ids: can be both list or string in valid format
         """
-        ids = self.get_ids_string(team_ids)
+        ids = to_comma_separated(team_ids)
         url = '{}{}/{}/league/by-team/{}'.format(api_url, region, version, ids)
         return self._get_data(url, **kwargs)
 
@@ -56,7 +49,7 @@ class League(BaseApiClass):
         https://developer.riotgames.com/api/methods#!/985/3355
         :param team_ids: can be both list or string in valid format
         """
-        ids = self.get_ids_string(team_ids)
+        ids = to_comma_separated(team_ids)
         url = '{}{}/{}/league/by-team/{}/entry'.format(api_url, region, version, ids)
         return self._get_data(url, **kwargs)
 

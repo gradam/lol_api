@@ -1,5 +1,4 @@
 # encoding: utf-8
-# encoding: utf-8
 import pytest
 from tests.utils import test_api_key, BaseTestClass
 

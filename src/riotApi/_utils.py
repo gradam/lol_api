@@ -163,3 +163,12 @@ def get_champion_id(value):
     except ValueError:
         raise NotImplementedError
     # TODO: get champion ID from name
+
+
+def to_comma_separated(ids):
+    if isinstance(ids, str):
+        return ids
+    elif isinstance(ids, int):
+        return str(ids)
+    else:
+        return ','.join([str(x) for x in ids])

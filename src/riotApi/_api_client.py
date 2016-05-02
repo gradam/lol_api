@@ -12,6 +12,7 @@ from riotApi._lol_status import LolStatus
 from riotApi._match import Match
 from riotApi._matchlist import Matchlist
 from riotApi._stats import Stats
+from riotApi._summoner import Summoner
 
 
 class Client:
@@ -32,3 +33,4 @@ class Client:
         self.Match = Match(api_key=self.api_key, watcher=self.watcher)
         self.Matchlist = Matchlist(api_key=self.api_key, watcher=self.watcher)
         self.Stats = Stats(api_key=self.api_key, watcher=self.watcher)
+        self.Summoner = Summoner(api_key=self.api_key, watcher=self.watcher)
