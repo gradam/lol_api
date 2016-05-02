@@ -27,10 +27,15 @@ client.LolStaticData.champion(champData='all')
 # Additional Data:
 ##  `riotApi.data`
 `error_codes` - Explain error codes that you can get from requests
+
 `regions` - map region names to shortcuts
+
 `region_default` - region that will be used if no other given
+
 `platforms` - map region shortcuts to platform name
+
 `queue_types` - map queue names to short descriptions
+
 `api_versions` - map APIs to versions
 
 
