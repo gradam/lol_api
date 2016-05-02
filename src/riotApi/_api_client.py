@@ -10,6 +10,7 @@ from riotApi._game import Game
 from riotApi._league import League
 from riotApi._lol_status import LolStatus
 from riotApi._match import Match
+from riotApi._matchlist import Matchlist
 
 
 class Client:
@@ -26,3 +27,4 @@ class Client:
         self.League = League(api_key=self.api_key, watcher=self.watcher)
         self.LolStatus = LolStatus()
         self.Match = Match(api_key=self.api_key, watcher=self.watcher)
+        self.Matchlist = Matchlist(api_key=self.api_key, watcher=self.watcher)
