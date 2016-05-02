@@ -37,7 +37,7 @@ class League(BaseApiClass):
         url = '{}{}/{}/league/by-summoner/{}/entry'.format(api_url, region, version, ids)
         return self._get_data(url, **kwargs)
 
-    def by_team(self, team_ids, region=region_default, **kwargs):
+    def by_teams(self, team_ids, region=region_default, **kwargs):
         """
         Get leagues mapped by team ID for a given list of team IDs.
         https://developer.riotgames.com/api/methods#!/985/3352
@@ -47,3 +47,28 @@ class League(BaseApiClass):
         url = '{}{}/{}/league/by-team/{}'.format(api_url, region, version, ids)
         return self._get_data(url, **kwargs)
 
+    def by_teams_entry(self, team_ids, region=region_default, **kwargs):
+        """
+        Get league entries mapped by team ID for a given list of team IDs.
+        https://developer.riotgames.com/api/methods#!/985/3355
+        :param team_ids: can be both list or string in valid format
+        """
+        ids = self.get_ids_string(team_ids)
+        url = '{}{}/{}/league/by-team/{}/entry'.format(api_url, region, version, ids)
+        return self._get_data(url, **kwargs)
+
+    def challenger(self, region=region_default, **kwargs):
+        """
+        Get challenger tier leagues.
+        https://developer.riotgames.com/api/methods#!/985/3353
+        """
+        url = '{}{}/{}/league/challenger'.format(api_url, region, version)
+        return self._get_data(url, **kwargs)
+
+    def master(self, region=region_default, **kwargs):
+        """
+        Get master tier leagues.
+        https://developer.riotgames.com/api/methods#!/985/3354
+        """
+        url = '{}{}/{}/league/master'.format(api_url, region, version)
+        return self._get_data(url, **kwargs)
