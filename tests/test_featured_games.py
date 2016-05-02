@@ -3,13 +3,13 @@ import pytest
 from tests.utils import test_api_key, BaseTestClass
 
 from riotApi import Client
-
+from riotApi._utils import region_default
 
 featured_games = Client(test_api_key, unlimited=True).FeaturedGames
 
 
-class Test(BaseTestClass):
-    control_url = 'https://eune.api.pvp.net/observer-mode/rest/featured'
+class TestFeaturedGames(BaseTestClass):
+    control_url = 'https://{}.api.pvp.net/observer-mode/rest/featured'.format(region_default)
 
     @pytest.fixture
     def data(self):

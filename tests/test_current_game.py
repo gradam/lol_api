@@ -2,15 +2,16 @@
 import pytest
 from tests.utils import test_api_key, BaseTestClass
 
-from riotApi._utils import base_url
+from riotApi._utils import base_url, region_default, platforms
 from riotApi import Client
 
-
+platform = platforms[region_default]
 current_game = Client(test_api_key, unlimited=True).CurrentGame
 
 
 class TestSpectatorGameInfo(BaseTestClass):
-    control_url = '{}/observer-mode/rest/consumer/getSpectatorGameInfo/EUN1/123'.format(base_url)
+    control_url = '{}/observer-mode/rest/consumer/getSpectatorGameInfo/EUN1/123'.format(base_url,
+                                                                                        platform)
 
     @pytest.fixture
     def data(self):

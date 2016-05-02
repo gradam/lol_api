@@ -1,14 +1,15 @@
 # encoding: utf-8
 import pytest
 
-from riotApi._utils import base_url, api_versions
+from riotApi._utils import base_url, api_versions, region_default
 from riotApi import Client
 
 from tests.utils import test_api_key, BaseTestClass
 
 
 static_api = Client(test_api_key, unlimited=True).LolStaticData
-api_url = '{}/api/lol/static-data/eune/{}'.format(base_url, api_versions['lol-static-data'])
+version = api_versions['lol-static-data']
+api_url = '{}/api/lol/static-data/{}/{}'.format(base_url, region_default, version)
 
 
 class TestChampionsAll(BaseTestClass):

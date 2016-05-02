@@ -2,15 +2,17 @@
 import pytest
 from tests.utils import test_api_key, BaseTestClass
 
-from riotApi._utils import base_url
+from riotApi._utils import base_url, platforms, region_default
 from riotApi import Client
 
 
 championmastery = Client(test_api_key, unlimited=True).Championmastery
+platform = platforms[region_default]
+api_url = '{}/championmastery/location/{}/player/'.format(base_url, platform)
 
 
 class TestChampionMaster(BaseTestClass):
-    control_url = '{}/championmastery/location/EUN1/player/1/champion/1'.format(base_url)
+    control_url = '{}1/champion/1'.format(api_url)
 
     @pytest.fixture
     def data(self):
@@ -18,7 +20,7 @@ class TestChampionMaster(BaseTestClass):
 
 
 class TestChampionPoints(BaseTestClass):
-    control_url = '{}/championmastery/location/EUN1/player/6/champions'.format(base_url)
+    control_url = '{}6/champions'.format(api_url)
 
     @pytest.fixture
     def data(self):
@@ -26,7 +28,7 @@ class TestChampionPoints(BaseTestClass):
 
 
 class TestScore(BaseTestClass):
-    control_url = '{}/championmastery/location/EUN1/player/2/score'.format(base_url)
+    control_url = '{}2/score'.format(api_url)
 
     @pytest.fixture
     def data(self):
@@ -34,7 +36,7 @@ class TestScore(BaseTestClass):
 
 
 class TestTopChampions(BaseTestClass):
-    control_url = '{}/championmastery/location/EUN1/player/2/topchampions'.format(base_url)
+    control_url = '{}2/topchampions'.format(api_url)
 
     @pytest.fixture
     def data(self):
