@@ -6,12 +6,14 @@ from riotApi._utils import check_response_code
 
 
 class BaseApiClass:
-    def __init__(self, api_key, watcher):
+    def __init__(self, api_key=None, watcher=None):
         self.api_key = api_key
         self.watcher = watcher
 
     def _set_options(self, **kwargs):
-        options = {'api_key': self.api_key}
+        options = dict()
+        if self.api_key:
+            options['api_key'] = self.api_key
         options.update(kwargs)
         return options
 
@@ -21,4 +23,3 @@ class BaseApiClass:
         response_code = data.status_code
         check_response_code(response_code)
         return json.loads(data.json())
-

@@ -8,17 +8,19 @@ from riotApi._current_game import CurrentGame
 from riotApi._featured_games import FeaturedGames
 from riotApi._game import Game
 from riotApi._league import League
+from riotApi._lol_status import LolStatus
 
 
 class Client:
     def __init__(self, api_key, production=False, unlimited=False):
         self.api_key = api_key
         self.watcher = RateLimitWatcher(production, unlimited=unlimited)
-        self.LolStaticData = LolStaticData(api_key, self.watcher)
+        self.LolStaticData = LolStaticData(api_key=self.api_key)
         self.LocalData = LocalData(self.LolStaticData)
-        self.Championmastery = ChampionMastery(self.api_key, self.watcher)
-        self.Champion = Champion(self.api_key, self.watcher)
-        self.CurrentGame = CurrentGame(self.api_key, self.watcher)
-        self.FeaturedGames = FeaturedGames(self.api_key, self.watcher)
-        self.Game = Game(self.api_key, self.watcher)
-        self.League = League(self.api_key, self.watcher)
+        self.Championmastery = ChampionMastery(api_key=self.api_key, watcher=self.watcher)
+        self.Champion = Champion(api_key=self.api_key, watcher=self.watcher)
+        self.CurrentGame = CurrentGame(api_key=self.api_key, watcher=self.watcher)
+        self.FeaturedGames = FeaturedGames(api_key=self.api_key, watcher=self.watcher)
+        self.Game = Game(api_key=self.api_key, watcher=self.watcher)
+        self.League = League(api_key=self.api_key, watcher=self.watcher)
+        self.LolStatus = LolStatus()

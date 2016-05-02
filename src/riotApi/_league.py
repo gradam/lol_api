@@ -27,6 +27,7 @@ class League(BaseApiClass):
         url = '{}{}/{}/league/by-summoner/{}'.format(api_url, region, version, ids)
         return self._get_data(url, **kwargs)
 
+    @count_request
     def by_summoners_entry(self, summoner_ids, region=region_default, **kwargs):
         """
         Get league entries mapped by summoner ID for a given list of summoner IDs.
@@ -37,6 +38,7 @@ class League(BaseApiClass):
         url = '{}{}/{}/league/by-summoner/{}/entry'.format(api_url, region, version, ids)
         return self._get_data(url, **kwargs)
 
+    @count_request
     def by_teams(self, team_ids, region=region_default, **kwargs):
         """
         Get leagues mapped by team ID for a given list of team IDs.
@@ -47,6 +49,7 @@ class League(BaseApiClass):
         url = '{}{}/{}/league/by-team/{}'.format(api_url, region, version, ids)
         return self._get_data(url, **kwargs)
 
+    @count_request
     def by_teams_entry(self, team_ids, region=region_default, **kwargs):
         """
         Get league entries mapped by team ID for a given list of team IDs.
@@ -57,6 +60,7 @@ class League(BaseApiClass):
         url = '{}{}/{}/league/by-team/{}/entry'.format(api_url, region, version, ids)
         return self._get_data(url, **kwargs)
 
+    @count_request
     def challenger(self, region=region_default, **kwargs):
         """
         Get challenger tier leagues.
@@ -65,6 +69,7 @@ class League(BaseApiClass):
         url = '{}{}/{}/league/challenger'.format(api_url, region, version)
         return self._get_data(url, **kwargs)
 
+    @count_request
     def master(self, region=region_default, **kwargs):
         """
         Get master tier leagues.
