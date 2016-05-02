@@ -1,7 +1,7 @@
 # encoding: utf-8
-from riotApi._utils import region_default
 from riotApi._base_api_class import BaseApiClass
 from riotApi._utils import count_request
+from riotApi._utils import region_default
 
 
 class FeaturedGames(BaseApiClass):

@@ -1,6 +1,6 @@
 # encoding: utf-8
-from riotApi._utils import region_default, base_url, api_versions, count_request, to_comma_separated
 from riotApi._base_api_class import BaseApiClass
+from riotApi._utils import region_default, base_url, api_versions, count_request, to_comma_separated
 
 version = api_versions['summoner']
 api_url = '{}/api/lol/'.format(base_url)
@@ -13,6 +13,7 @@ class Summoner(BaseApiClass):
         """
         Get summoner objects mapped by standardized summoner name for a given list of summoner names.
         https://developer.riotgames.com/api/methods#!/1079/3722
+        :param  summoner_names: can be both list or string in valid format
         """
         names = to_comma_separated(summoner_names)
         url = '{}{}/{}/summoner/by-name/{}'.format(api_url, region, version, names)
@@ -23,6 +24,7 @@ class Summoner(BaseApiClass):
         """
         Get summoner objects mapped by summoner ID for a given list of summoner IDs.
         https://developer.riotgames.com/api/methods#!/1079/3724
+        :param summoner_ids: can be both list or string in valid format
         """
         ids = to_comma_separated(summoner_ids)
         url = '{}{}/{}/summoner/{}'.format(api_url, region, version, ids)
@@ -33,6 +35,7 @@ class Summoner(BaseApiClass):
         """
         Get mastery pages mapped by summoner ID for a given list of summoner IDs
         https://developer.riotgames.com/api/methods#!/1079/3723
+        :param summoner_ids: can be both list or string in valid format
         """
         ids = to_comma_separated(summoner_ids)
         url = '{}{}/{}/summoner/{}/masteries'.format(api_url, region, version, ids)
@@ -43,6 +46,7 @@ class Summoner(BaseApiClass):
         """
         Get summoner names mapped by summoner ID for a given list of summoner IDs.
         https://developer.riotgames.com/api/methods#!/1079/3720
+        :param summoner_ids: can be both list or string in valid format
         """
         ids = to_comma_separated(summoner_ids)
         url = '{}{}/{}/summoner/{}/name'.format(api_url, region, version, ids)
@@ -53,6 +57,7 @@ class Summoner(BaseApiClass):
         """
         Get rune pages mapped by summoner ID for a given list of summoner IDs.
         https://developer.riotgames.com/api/methods#!/1079/3719
+        :param summoner_ids: can be both list or string in valid format
         """
         ids = to_comma_separated(summoner_ids)
         url = '{}{}/{}/summoner/{}/runes'.format(api_url, region, version, ids)

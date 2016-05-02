@@ -1,12 +1,12 @@
 # encoding: utf-8
 
 import os
-import requests
-from collections import defaultdict, deque, namedtuple
 import time
+from collections import defaultdict, deque, namedtuple
+
+import requests
 
 from riotApi.exceptions import RateLimitExceededError
-
 
 error_codes = defaultdict(lambda: 'Unknown error code', )
 

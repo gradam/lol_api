@@ -1,9 +1,9 @@
 # encoding: utf-8
 import pytest
-from tests.utils import test_api_key, BaseTestClass
 
 from riotApi import Client
 from riotApi._utils import base_url, region_default, api_versions
+from tests.utils import test_api_key, BaseTestClass
 
 team = Client(test_api_key, unlimited=True).Team
 

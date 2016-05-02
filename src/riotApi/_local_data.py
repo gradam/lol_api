@@ -1,5 +1,5 @@
-import os
 import json
+import os
 
 from riotApi._utils import directory
 

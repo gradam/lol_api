@@ -1,6 +1,7 @@
 # encoding: utf-8
-import requests
 import json
+
+import requests
 
 from riotApi._utils import check_response_code
 
@@ -12,8 +13,10 @@ class BaseApiClass:
 
     def _set_options(self, **kwargs):
         options = dict()
+
         if self.api_key:
             options['api_key'] = self.api_key
+
         options.update(kwargs)
         return options
 

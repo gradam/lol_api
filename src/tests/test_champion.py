@@ -1,10 +1,9 @@
 # encoding: utf-8
-from tests.utils import BaseTestClass, test_api_key
-
 import pytest
 
 from riotApi import Client
 from riotApi._utils import base_url, api_versions
+from tests.utils import BaseTestClass, test_api_key
 
 
 champion_api = Client(test_api_key, unlimited=True).Champion

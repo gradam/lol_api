@@ -1,11 +1,8 @@
-import sys
-import os
 from time import time
 
 import pytest
 import requests
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from riotApi._utils import check_response_code, RateLimitWatcher, count_request, get_champion_id
 from riotApi.exceptions import RateLimitExceededError
 

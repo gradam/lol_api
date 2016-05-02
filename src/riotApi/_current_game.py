@@ -1,7 +1,7 @@
 # encoding: utf-8
-from riotApi._utils import region_default, base_url
 from riotApi._base_api_class import BaseApiClass
 from riotApi._utils import count_request, platforms
+from riotApi._utils import region_default, base_url
 
 api_url = '{}/observer-mode/rest/consumer/getSpectatorGameInfo'.format(base_url)
 

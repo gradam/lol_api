@@ -1,19 +1,19 @@
 # encoding: utf-8
-from riotApi._lol_static_data import LolStaticData
-from riotApi._local_data import LocalData
-from riotApi._utils import RateLimitWatcher
-from riotApi._championmastery import ChampionMastery
 from riotApi._champion import Champion
+from riotApi._championmastery import ChampionMastery
 from riotApi._current_game import CurrentGame
 from riotApi._featured_games import FeaturedGames
 from riotApi._game import Game
 from riotApi._league import League
+from riotApi._local_data import LocalData
+from riotApi._lol_static_data import LolStaticData
 from riotApi._lol_status import LolStatus
 from riotApi._match import Match
 from riotApi._matchlist import Matchlist
 from riotApi._stats import Stats
 from riotApi._summoner import Summoner
 from riotApi._team import Team
+from riotApi._utils import RateLimitWatcher
 
 
 class Client:

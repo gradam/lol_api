@@ -1,9 +1,8 @@
 # encoding: utf-8
 import pytest
 
-from riotApi._utils import base_url, api_versions, region_default
 from riotApi import Client
-
+from riotApi._utils import base_url, api_versions, region_default
 from tests.utils import test_api_key, BaseTestClass
 
 
