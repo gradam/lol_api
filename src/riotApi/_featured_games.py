@@ -12,4 +12,4 @@ class FeaturedGames(BaseApiClass):
         https://developer.riotgames.com/api/methods#!/977/3337
         """
         url = 'https://{}.api.pvp.net/observer-mode/rest/featured'.format(region)
-        return self._get_data(url, kwargs)
+        return self._get_data(url, **kwargs)

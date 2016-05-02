@@ -15,5 +15,5 @@ class CurrentGame(BaseApiClass):
         """
         platform = platforms[region]
         url = '{}/{}/{}'.format(api_url, platform, summoner_id)
-        return self._get_data(url, kwargs)
+        return self._get_data(url, **kwargs)
 

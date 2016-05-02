@@ -14,7 +14,7 @@ class Champion(BaseApiClass):
         https://developer.riotgames.com/api/methods#!/1077/3717
         """
         url = '{}{}/{}/champion'.format(api_url, region, version)
-        return self._get_data(url, kwargs)
+        return self._get_data(url, **kwargs)
 
     @count_request
     def champion(self, champion_id, region=region_default, **kwargs):
@@ -22,4 +22,4 @@ class Champion(BaseApiClass):
         https://developer.riotgames.com/api/methods#!/1077/3716
         """
         url = '{}{}/{}/champion/{}'.format(api_url, region, version, champion_id)
-        return self._get_data(url, kwargs)
+        return self._get_data(url, **kwargs)

@@ -7,6 +7,7 @@ from riotApi._champion import Champion
 from riotApi._current_game import CurrentGame
 from riotApi._featured_games import FeaturedGames
 from riotApi._game import Game
+from riotApi._league import League
 
 
 class Client:
@@ -20,3 +21,4 @@ class Client:
         self.CurrentGame = CurrentGame(self.api_key, self.watcher)
         self.FeaturedGames = FeaturedGames(self.api_key, self.watcher)
         self.Game = Game(self.api_key, self.watcher)
+        self.League = League(self.api_key, self.watcher)

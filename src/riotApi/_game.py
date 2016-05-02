@@ -10,5 +10,9 @@ api_url = '{}/api/lol/'.format(base_url)
 class Game(BaseApiClass):
     @count_request
     def recent(self, summoner_id, region=region_default, **kwargs):
+        """
+        Get recent games by summoner ID.
+        https://developer.riotgames.com/api/methods#!/1078/3718
+        """
         url = '{}{}/{}/game/by-summoner/{}/recent'.format(api_url, region, version, summoner_id)
-        return self._get_data(url, kwargs)
+        return self._get_data(url, **kwargs)
