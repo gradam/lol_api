@@ -1,6 +1,4 @@
 # encoding: utf-8
-import json
-
 import requests
 
 from riotApi._utils import check_response_code
