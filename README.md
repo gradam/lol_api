@@ -1,4 +1,5 @@
 It is python wrapper for League of Legends api
+
 Full api documentation: [link](https://developer.riotgames.com/api/methods)
 
 # Usage:
@@ -52,10 +53,12 @@ You can also turn this off by passing `unlimited=True` to Client.
 
 # Running tests
 Requirements for tests are in tests_requirements.txt file.
+
 To run test go to `src` or `tests` directory and run:
 `py.test`
 
 
 # TODO:
 Add possibility to cache responses
+
 Add inplace translation champion name to id
