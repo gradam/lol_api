@@ -1,41 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42c1197e-c8d9-4e3e-9b14-aefb7963e92a" name="Default" comment="API Done">
+    <list default="true" id="42c1197e-c8d9-4e3e-9b14-aefb7963e92a" name="Default" comment="up">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests_requirements.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_api_client.py" afterPath="$PROJECT_DIR$/src/riotApi/_api_client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_base_api_class.py" afterPath="$PROJECT_DIR$/src/riotApi/_base_api_class.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_champion.py" afterPath="$PROJECT_DIR$/src/riotApi/_champion.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_championmastery.py" afterPath="$PROJECT_DIR$/src/riotApi/_championmastery.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_current_game.py" afterPath="$PROJECT_DIR$/src/riotApi/_current_game.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_featured_games.py" afterPath="$PROJECT_DIR$/src/riotApi/_featured_games.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_game.py" afterPath="$PROJECT_DIR$/src/riotApi/_game.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_league.py" afterPath="$PROJECT_DIR$/src/riotApi/_league.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_local_data.py" afterPath="$PROJECT_DIR$/src/riotApi/_local_data.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_lol_static_data.py" afterPath="$PROJECT_DIR$/src/riotApi/_lol_static_data.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_lol_status.py" afterPath="$PROJECT_DIR$/src/riotApi/_lol_status.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_match.py" afterPath="$PROJECT_DIR$/src/riotApi/_match.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_matchlist.py" afterPath="$PROJECT_DIR$/src/riotApi/_matchlist.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_stats.py" afterPath="$PROJECT_DIR$/src/riotApi/_stats.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_summoner.py" afterPath="$PROJECT_DIR$/src/riotApi/_summoner.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_team.py" afterPath="$PROJECT_DIR$/src/riotApi/_team.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/riotApi/_utils.py" afterPath="$PROJECT_DIR$/src/riotApi/_utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_champion.py" afterPath="$PROJECT_DIR$/src/tests/test_champion.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_championmastery.py" afterPath="$PROJECT_DIR$/src/tests/test_championmastery.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_client.py" afterPath="$PROJECT_DIR$/src/tests/test_client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_current_game.py" afterPath="$PROJECT_DIR$/src/tests/test_current_game.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_exceptions.py" afterPath="$PROJECT_DIR$/src/tests/test_exceptions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_featured_games.py" afterPath="$PROJECT_DIR$/src/tests/test_featured_games.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_game.py" afterPath="$PROJECT_DIR$/src/tests/test_game.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_league.py" afterPath="$PROJECT_DIR$/src/tests/test_league.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_lol_static_data.py" afterPath="$PROJECT_DIR$/src/tests/test_lol_static_data.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_lol_status.py" afterPath="$PROJECT_DIR$/src/tests/test_lol_status.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_match.py" afterPath="$PROJECT_DIR$/src/tests/test_match.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_matchlist.py" afterPath="$PROJECT_DIR$/src/tests/test_matchlist.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_stats.py" afterPath="$PROJECT_DIR$/src/tests/test_stats.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_summoner.py" afterPath="$PROJECT_DIR$/src/tests/test_summoner.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_team.py" afterPath="$PROJECT_DIR$/src/tests/test_team.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests/test_utils.py" afterPath="$PROJECT_DIR$/src/tests/test_utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
     </list>
     <ignored path="league_of_legends.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -100,51 +69,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_game.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/riotApi/_game.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="27" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_league.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/riotApi/_league.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_local_data.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/riotApi/_local_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_lol_static_data.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/riotApi/_lol_static_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="123" column="30" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_utils.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/riotApi/_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
+            <state relative-caret-position="2772">
               <caret line="154" column="0" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
+              <folding>
+                <element signature="e#19#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contributors.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contributors.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tests_requirements.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests_requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -194,9 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../league_of_legends/src/riotApi/_champion.py" />
-        <option value="$PROJECT_DIR$/../league_of_legends/src/riotApi/tests/test_api.py" />
-        <option value="$PROJECT_DIR$/../league_of_legends/src/riotApi/_championmastery.py" />
         <option value="$PROJECT_DIR$/../league_of_legends/src/riotApi/tests/utils.py" />
         <option value="$PROJECT_DIR$/../league_of_legends/src/riotApi/_utils.py" />
         <option value="$PROJECT_DIR$/../league_of_legends/src/riotApi/_base_api_class.py" />
@@ -222,7 +190,6 @@
         <option value="$PROJECT_DIR$/src/riotApi/_lol_status.py" />
         <option value="$PROJECT_DIR$/tests/test_lol_status.py" />
         <option value="$PROJECT_DIR$/tests/test_match.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/tests/test_client.py" />
         <option value="$PROJECT_DIR$/tests/__init__.py" />
         <option value="$PROJECT_DIR$/tests/test_champion.py" />
@@ -245,6 +212,10 @@
         <option value="$PROJECT_DIR$/src/riotApi/_summoner.py" />
         <option value="$PROJECT_DIR$/src/riotApi/_team.py" />
         <option value="$PROJECT_DIR$/src/riotApi/_lol_static_data.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/tests_requirements.txt" />
+        <option value="$PROJECT_DIR$/contributors.txt" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -328,56 +299,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="LoL_Api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoL_Api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoL_Api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoL_Api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoL_Api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="riotApi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoL_Api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoL_Api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -960,7 +881,14 @@
       <option name="project" value="LOCAL" />
       <updated>1462197192857</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="cleaned up, imports organized and fixed docstrings">
+      <created>1462197676632</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1462197676632</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1055,7 +983,8 @@
     <MESSAGE value="stats" />
     <MESSAGE value="summoner&#10;" />
     <MESSAGE value="API Done" />
-    <option name="LAST_COMMIT_MESSAGE" value="API Done" />
+    <MESSAGE value="cleaned up, imports organized and fixed docstrings" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaned up, imports organized and fixed docstrings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1064,15 +993,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../league_of_legends/src/riotApi/tests/test_championsID.py" />
     <entry file="file://$PROJECT_DIR$/../league_of_legends/src/riotApi/data.json" />
-    <entry file="file://$PROJECT_DIR$/contributors.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../league_of_legends/src/riotApi/static_info.py" />
     <entry file="file://$PROJECT_DIR$/../league_of_legends/src/riotApi/temp.py" />
     <entry file="file://$PROJECT_DIR$/../league_of_legends/src/riotApi/_base_info.py" />
@@ -1103,14 +1024,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1151,14 +1064,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1425,8 +1330,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/riotApi/_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
+        <state relative-caret-position="2772">
           <caret line="154" column="0" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
+          <folding>
+            <element signature="e#19#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests_requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contributors.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
           <folding />
         </state>
       </provider>
