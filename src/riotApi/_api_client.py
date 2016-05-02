@@ -9,6 +9,7 @@ from riotApi._featured_games import FeaturedGames
 from riotApi._game import Game
 from riotApi._league import League
 from riotApi._lol_status import LolStatus
+from riotApi._match import Match
 
 
 class Client:
@@ -24,3 +25,4 @@ class Client:
         self.Game = Game(api_key=self.api_key, watcher=self.watcher)
         self.League = League(api_key=self.api_key, watcher=self.watcher)
         self.LolStatus = LolStatus()
+        self.Match = Match(api_key=self.api_key, watcher=self.watcher)
