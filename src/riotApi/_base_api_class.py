@@ -25,4 +25,4 @@ class BaseApiClass:
         data = requests.get(url, params=options)
         response_code = data.status_code
         check_response_code(response_code)
-        return json.loads(data.json())
+        return data.json()
