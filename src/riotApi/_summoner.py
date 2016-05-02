@@ -1,6 +1,7 @@
 # encoding: utf-8
 from riotApi._base_api_class import BaseApiClass
-from riotApi._utils import region_default, base_url, api_versions, count_request, to_comma_separated
+from riotApi._utils import count_request, to_comma_separated, base_url
+from riotApi.data import region_default, api_versions
 
 version = api_versions['summoner']
 api_url = '{}/api/lol/'.format(base_url)

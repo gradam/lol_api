@@ -2,7 +2,8 @@
 import pytest
 
 from riotApi import Client
-from riotApi._utils import base_url, region_default, platforms
+from riotApi.data import region_default, platforms
+from riotApi._utils import base_url
 from tests.utils import test_api_key, BaseTestClass
 
 platform = platforms[region_default]

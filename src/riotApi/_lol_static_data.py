@@ -1,6 +1,7 @@
 # encoding: utf-8
 from riotApi._base_api_class import BaseApiClass
-from riotApi._utils import region_default, base_url, api_versions
+from riotApi.data import region_default, api_versions
+from riotApi._utils import base_url
 
 version = api_versions['lol-static-data']
 api_url = '{}/api/lol/static-data/'.format(base_url)

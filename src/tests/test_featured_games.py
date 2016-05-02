@@ -2,7 +2,7 @@
 import pytest
 
 from riotApi import Client
-from riotApi._utils import region_default
+from riotApi.data import region_default
 from tests.utils import test_api_key, BaseTestClass
 
 featured_games = Client(test_api_key, unlimited=True).FeaturedGames

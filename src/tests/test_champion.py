@@ -2,7 +2,8 @@
 import pytest
 
 from riotApi import Client
-from riotApi._utils import base_url, api_versions
+from riotApi.data import api_versions
+from riotApi._utils import base_url
 from tests.utils import BaseTestClass, test_api_key
 
 

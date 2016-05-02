@@ -2,7 +2,8 @@
 import pytest
 
 from riotApi import Client
-from riotApi._utils import base_url, region_default, api_versions
+from riotApi.data import region_default, api_versions
+from riotApi._utils import base_url
 from tests.utils import test_api_key, BaseTestClass
 
 match = Client(test_api_key, unlimited=True).Match
