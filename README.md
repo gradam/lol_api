@@ -63,3 +63,5 @@ To run test go to `src` or `tests` directory and run:
 Add possibility to cache responses
 
 Add inplace translation champion name to id
+
+Add different watchers for different regions
