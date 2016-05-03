@@ -1,5 +1,3 @@
-import json
-
 import pytest
 import requests
 
@@ -8,7 +6,7 @@ test_api_key = 'test_key'
 
 class BaseTestClass:
     control_url = ''
-    test_json = {'3': "bb", "a": 4}
+    test_json = {"3": "bb", "a": 4}
 
     @pytest.fixture(autouse=True)
     def mock_request_get(self, monkeypatch):
@@ -40,7 +38,7 @@ class MockRequest:
         self.status_code = code
 
     def json(self):
-        return json.dumps(self.json_data)
+        return self.json_data
 
 
 @pytest.fixture(autouse=True)
