@@ -27,17 +27,12 @@ client.LolStaticData.champion(champData='all')
 
 # Additional Data:
 ##  `riotApi.data`
-`error_codes` - Explain error codes that you can get from requests
-
-`regions` - map region names to shortcuts
-
-`region_default` - region that will be used if no other given
-
-`platforms` - map region shortcuts to platform name
-
-`queue_types` - map queue names to short descriptions
-
-`api_versions` - map APIs to versions
+* `error_codes` - Explain error codes that you can get from requests
+* `regions` - map region names to shortcuts
+* `region_default` - region that will be used if no other given
+* `platforms` - map region shortcuts to platform name
+* `queue_types` - map queue names to short descriptions
+* `api_versions` - map APIs to versions
 
 
 # Rate limit:
@@ -60,8 +55,6 @@ To run test go to `src` or `tests` directory and run:
 
 
 # TODO:
-Add possibility to cache responses
-
-Add inplace translation champion name to id
-
-Add different watchers for different regions
+* Add possibility to cache responses
+* Add inplace translation champion name to id
+* Add different watchers for different regions
