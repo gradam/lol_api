@@ -23,7 +23,7 @@ class LocalData:
     def _ensure_folder_exist(self, path):
         try:
             os.mkdir(path)
-        except FileExistsError:
+        except OSError:
             pass
 
     def _save_to_json(self, filename, data):

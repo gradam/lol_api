@@ -1,9 +1,12 @@
 # encoding: utf-8
-from unittest.mock import mock_open
+try:
+    from unittest.mock import mock_open
+except ImportError:
+    from mock import mock_open
 
 import pytest
 
-from tests.utils import test_api_key, mock_request_get
+from utils import test_api_key, mock_request_get
 from riotApi import Client
 
 
@@ -11,13 +14,16 @@ local_data = Client(test_api_key, unlimited=True).LocalData
 
 
 def raise_file_exists_error(path):
-    raise FileExistsError
+    raise OSError('File exists')
 
 
 @pytest.fixture(autouse=True)
 def mock_open_func(mocker):
     m = mock_open()
-    mocker.patch('builtins.open', m, create=True)
+    try:
+        mocker.patch('builtins.open', m, create=True)
+    except ImportError:
+        mocker.patch('__builtin__.open', m, create=True)
 
 
 @pytest.fixture(autouse=True)

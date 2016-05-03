@@ -4,7 +4,7 @@ import pytest
 from riotApi import Client
 from riotApi.data import api_versions
 from riotApi._utils import base_url
-from tests.utils import BaseTestClass, test_api_key
+from utils import BaseTestClass, test_api_key
 
 
 champion_api = Client(test_api_key, unlimited=True).Champion

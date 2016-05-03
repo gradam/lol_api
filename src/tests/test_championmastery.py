@@ -4,7 +4,7 @@ import pytest
 from riotApi import Client
 from riotApi.data import region_default, platforms
 from riotApi._utils import base_url
-from tests.utils import test_api_key, BaseTestClass
+from utils import test_api_key, BaseTestClass
 
 championmastery = Client(test_api_key, unlimited=True).Championmastery
 platform = platforms[region_default]
