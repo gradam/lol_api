@@ -10,7 +10,7 @@ class BaseApiClass:
         self.watcher = watcher
 
     def _set_options(self, **kwargs):
-        options = dict()
+        options = {}
 
         if self.api_key:
             options['api_key'] = self.api_key

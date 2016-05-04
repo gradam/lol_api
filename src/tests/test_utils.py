@@ -23,42 +23,40 @@ class TestRateLimitWatcher:
         return RateLimitWatcher(production=False)
 
     def test_add_request(self, watcher):
-        watcher.add_request()
-        assert len(watcher.made_requests) == 1
+        watcher.add_request('eune')
+        assert len(watcher.made_requests['eune']) == 1
 
     def test_reload(self, watcher):
-        watcher.made_requests.append(time() - 900)
-        watcher.made_requests.append(time())
-        watcher._reload()
-        assert len(watcher.made_requests) == 1
+        watcher.made_requests['euw'].append(time() - 900)
+        watcher.made_requests['euw'].append(time())
+        watcher._reload('euw')
+        assert len(watcher.made_requests['euw']) == 1
 
     def test_request_available(self, watcher):
-        assert watcher.request_available() is True
+        assert watcher.request_available('eune') is True
 
     def test_request_unavailable(self, watcher):
         for _ in range(500):
-            watcher.add_request()
-        assert watcher.request_available() is False
+            watcher.add_request('euw')
+        assert watcher.request_available('euw') is False
 
     def test_short_request_unavailable(self, watcher):
         for _ in range(10):
-            watcher.add_request()
-        assert watcher.request_available() is False
+            watcher.add_request('eune')
+        assert watcher.request_available('eune') is False
 
     def test_production(self):
         watcher = RateLimitWatcher(production=True)
         for _ in range(40):
-            watcher.add_request()
-        assert watcher.request_available() is True
+            watcher.add_request('eune')
+        assert watcher.request_available('eune') is True
 
 
 class TestCountRequest:
     message = 'test'
 
-    watcher = RateLimitWatcher(production=False)
-
     @count_request
-    def api_func(self):
+    def api_func(self, region=None):
         return self.message
 
     @pytest.fixture(autouse=True)
@@ -69,15 +67,16 @@ class TestCountRequest:
         assert self.api_func() == self.message
 
     def test_counter(self):
-        self.api_func()
-        self.api_func()
-        assert len(self.watcher.made_requests) == 2
+        self.api_func(region='euw')
+        self.api_func(region='euw')
+        assert len(self.watcher.made_requests['euw']) == 2
 
     def test_rate_limit_exceeded_error_rise(self):
         for _ in range(10):
-            self.api_func()
+            self.api_func(region='eune')
         with pytest.raises(RateLimitExceededError):
-            self.api_func()
+            self.api_func(region='eune')
+        assert self.watcher.request_available('euw') is True
 
 
 def test_get_champion_id():

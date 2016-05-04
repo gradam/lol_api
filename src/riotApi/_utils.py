@@ -6,7 +6,7 @@ from collections import deque, namedtuple
 
 import requests
 
-from riotApi.data import error_codes
+from riotApi.data import error_codes, regions, region_default
 from riotApi.exceptions import RateLimitExceededError
 
 
@@ -24,26 +24,32 @@ class RateLimitWatcher:
         else:
             self.short_limit = Limit(requests=10, seconds=10)
             self.long_limit = Limit(requests=500, seconds=600)
-        self.made_requests = deque(maxlen=self.long_limit.requests)
+        self.made_requests = {
+            region: deque(maxlen=self.long_limit.requests) for region in regions.values()
+            }
 
-    def add_request(self):
-        self.made_requests.append(time.time())
+    def add_request(self, region):
+        self.made_requests[region].append(time.time())
 
-    def _reload(self):
+    def _reload(self, region):
         t = time.time() - 600
-        while len(self.made_requests) > 0 and self.made_requests[0] < t:
-            self.made_requests.popleft()
+        while len(self.made_requests[region]) > 0 and self.made_requests[region][0] < t:
+            self.made_requests[region].popleft()
 
-    def request_available(self):
-        self._reload()
+    def request_available(self, region):
+        self._reload(region)
+
         if self.unlimited:
             return True
+
         try:
-            latest_short_requests = self.made_requests[self.short_limit.requests - 1]
+            latest_short_requests = self.made_requests[region][self.short_limit.requests - 1]
         except IndexError:
             latest_short_requests = time.time() - 30
+
         requests_limit = self.long_limit.requests
-        if latest_short_requests < time.time() - 10 and len(self.made_requests) != requests_limit:
+        request_number = len(self.made_requests[region])
+        if latest_short_requests < time.time() - 10 and request_number != requests_limit:
             return True
         else:
             return False
@@ -57,8 +63,13 @@ def check_response_code(response_code):
 
 def count_request(func):
     def wrapper(self, *args, **kwargs):
-        if self.watcher.request_available():
-            self.watcher.add_request()
+        try:
+            region = kwargs['region']
+        except KeyError:
+            region = region_default
+
+        if self.watcher.request_available(region):
+            self.watcher.add_request(region)
             return func(self, *args, **kwargs)
         else:
             raise RateLimitExceededError
