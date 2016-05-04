@@ -55,6 +55,7 @@ To run test go to `src` or `tests` directory and run:
 
 
 # TODO:
-* default region for each Client 
+* Default region for each Client
+* Better documentation
 * Add inplace translation champion name to id
 * Add possibility to cache responses
