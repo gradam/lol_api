@@ -7,7 +7,7 @@ except ImportError:
 import pytest
 
 from utils import test_api_key, mock_request_get
-from riotApi import Client
+from lol_api import Client
 
 
 local_data = Client(test_api_key, 'eune', unlimited=True).LocalData

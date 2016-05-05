@@ -3,10 +3,10 @@ It is python wrapper for League of Legends api
 Full api documentation: [link](https://developer.riotgames.com/api/methods)
 
 # Usage:
-To start using api simple import riotApi and then create Client object and pass as arguments api_key and default region to use when no other specified in api call.
+To start using api simple import lol_api and then create Client object and pass as arguments api_key and default region to use when no other specified in api call.
 eg.
 ```python
-from riotApi import Client
+from lol_api import Client
 client = Client('my_api_key', 'eune')
 ```
 Structure of a class correspond to Riot's documentation.
@@ -27,7 +27,7 @@ client.LolStaticData.champion(champData='all')
 
 
 # Additional Data:
-##  `riotApi.data`
+##  `lol_api.data`
 * `error_codes` - Explain error codes that you can get from requests
 * `regions` - map region names to shortcuts
 * `platforms` - map region shortcuts to platform name
@@ -44,7 +44,7 @@ client = Client('api_key', production=True)
 ```
 You can also turn this off by passing `unlimited=True` to Client.
 
-**If Rate limit is exceeded `riotApi.exceptions.RateLimitExceededError` will be raised.**
+**If Rate limit is exceeded `lol_api.exceptions.RateLimitExceededError` will be raised.**
 
 # Running tests
 Requirements for tests are in tests_requirements.txt file.

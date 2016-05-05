@@ -1,6 +1,6 @@
 # encoding: utf-8
-from riotApi._base_api_class import BaseApiClass
-from riotApi._utils import count_request
+from lol_api._base_api_class import BaseApiClass
+from lol_api._utils import count_request
 
 
 class FeaturedGames(BaseApiClass):

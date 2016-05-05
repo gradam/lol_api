@@ -6,8 +6,8 @@ from collections import deque, namedtuple
 
 import requests
 
-from riotApi.data import error_codes, regions
-from riotApi.exceptions import RateLimitExceededError, InvalidRegionError
+from lol_api.data import error_codes, regions
+from lol_api.exceptions import RateLimitExceededError, InvalidRegionError
 
 
 directory = os.path.dirname(os.path.realpath(__file__))

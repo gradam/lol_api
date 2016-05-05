@@ -1,7 +1,7 @@
 # encoding: utf-8
 import pytest
 
-from riotApi.exceptions import RateLimitExceededError
+from lol_api.exceptions import RateLimitExceededError
 
 
 def test_message():

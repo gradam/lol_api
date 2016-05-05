@@ -1,7 +1,7 @@
 # encoding: utf-8
-from riotApi._base_api_class import BaseApiClass
-from riotApi._utils import count_request, get_champion_id, base_url
-from riotApi.data import platforms
+from lol_api._base_api_class import BaseApiClass
+from lol_api._utils import count_request, get_champion_id, base_url
+from lol_api.data import platforms
 
 api_url = '{}/championmastery/location/'.format(base_url)
 

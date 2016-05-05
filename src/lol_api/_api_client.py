@@ -1,19 +1,19 @@
 # encoding: utf-8
-from riotApi._champion import Champion
-from riotApi._championmastery import ChampionMastery
-from riotApi._current_game import CurrentGame
-from riotApi._featured_games import FeaturedGames
-from riotApi._game import Game
-from riotApi._league import League
-from riotApi._local_data import LocalData
-from riotApi._lol_static_data import LolStaticData
-from riotApi._lol_status import LolStatus
-from riotApi._match import Match
-from riotApi._matchlist import Matchlist
-from riotApi._stats import Stats
-from riotApi._summoner import Summoner
-from riotApi._team import Team
-from riotApi._utils import RateLimitWatcher, region_validation
+from lol_api._champion import Champion
+from lol_api._championmastery import ChampionMastery
+from lol_api._current_game import CurrentGame
+from lol_api._featured_games import FeaturedGames
+from lol_api._game import Game
+from lol_api._league import League
+from lol_api._local_data import LocalData
+from lol_api._lol_static_data import LolStaticData
+from lol_api._lol_status import LolStatus
+from lol_api._match import Match
+from lol_api._matchlist import Matchlist
+from lol_api._stats import Stats
+from lol_api._summoner import Summoner
+from lol_api._team import Team
+from lol_api._utils import RateLimitWatcher, region_validation
 
 
 class Client:

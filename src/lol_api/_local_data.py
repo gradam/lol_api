@@ -1,7 +1,7 @@
 import json
 import os
 
-from riotApi._utils import directory
+from lol_api._utils import directory
 
 
 class LocalData:

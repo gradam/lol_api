@@ -1,7 +1,7 @@
 # encoding: utf-8
-from riotApi._base_api_class import BaseApiClass
-from riotApi._utils import count_request, to_comma_separated, base_url
-from riotApi.data import api_versions
+from lol_api._base_api_class import BaseApiClass
+from lol_api._utils import count_request, to_comma_separated, base_url
+from lol_api.data import api_versions
 
 version = api_versions['league']
 api_url = '{}/api/lol/'.format(base_url)

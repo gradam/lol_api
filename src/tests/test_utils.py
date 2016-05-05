@@ -3,10 +3,10 @@ from time import time
 import pytest
 import requests
 
-from riotApi._utils import check_response_code, RateLimitWatcher, count_request, get_champion_id, \
+from lol_api._utils import check_response_code, RateLimitWatcher, count_request, get_champion_id, \
     region_validation
-from riotApi.exceptions import RateLimitExceededError, InvalidRegionError
-from riotApi.data import regions
+from lol_api.exceptions import RateLimitExceededError, InvalidRegionError
+from lol_api.data import regions
 
 
 def test_check_response_code():

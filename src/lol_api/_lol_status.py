@@ -1,6 +1,6 @@
 # encoding: utf-8
 # encoding: utf-8
-from riotApi._base_api_class import BaseApiClass
+from lol_api._base_api_class import BaseApiClass
 
 api_url = 'http://status.leagueoflegends.com/shards'
 
