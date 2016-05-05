@@ -1,13 +1,14 @@
 # encoding: utf-8
 import requests
 
-from riotApi._utils import check_response_code
+from riotApi._utils import check_response_code, region_validation
 
 
 class BaseApiClass:
-    def __init__(self, api_key=None, watcher=None):
+    def __init__(self, api_key=None, watcher=None, region_default=None):
         self.api_key = api_key
         self.watcher = watcher
+        self.region_default = region_default
 
     def _set_options(self, **kwargs):
         options = {}
@@ -24,3 +25,11 @@ class BaseApiClass:
         response_code = data.status_code
         check_response_code(response_code)
         return data.json()
+
+    def _region_to_valid(self, region):
+        if region is None:
+            return self.region_default
+        else:
+            return region_validation(region)
+
+

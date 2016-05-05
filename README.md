@@ -3,10 +3,11 @@ It is python wrapper for League of Legends api
 Full api documentation: [link](https://developer.riotgames.com/api/methods)
 
 # Usage:
-To start using api simple import riotApi and then create Client object
+To start using api simple import riotApi and then create Client object and pass as arguments api_key and default region to use when no other specified in api call.
+eg.
 ```python
 from riotApi import Client
-client = Client('my_api_key')
+client = Client('my_api_key', 'eune')
 ```
 Structure of a class correspond to Riot's documentation.
 So to get information about summoner by name:
@@ -17,7 +18,7 @@ client.Summoner.by_name('my_name')
 Each method returns data in form of dictionary
 
 # Extra arguments:
-To specify the region pass `region='your_region'` as argument to method, if not specified `data.region_default` will be used.
+To specify the region pass `region='your_region'` as argument to method, if not specified `region_default` passed to Client will be used.
 
 If lol api accept optional arguments, it should be pass as a keyword named exactly as expected by api. eg.
 ```python
@@ -29,7 +30,6 @@ client.LolStaticData.champion(champData='all')
 ##  `riotApi.data`
 * `error_codes` - Explain error codes that you can get from requests
 * `regions` - map region names to shortcuts
-* `region_default` - region that will be used if no other given
 * `platforms` - map region shortcuts to platform name
 * `queue_types` - map queue names to short descriptions
 * `api_versions` - map APIs to versions
@@ -55,7 +55,6 @@ To run test go to `src` or `tests` directory and run:
 
 
 # TODO:
-* Default region for each Client
 * Better documentation
 * Add inplace translation champion name to id
 * Add possibility to cache responses

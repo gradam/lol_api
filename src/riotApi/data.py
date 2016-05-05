@@ -27,8 +27,6 @@ regions = {
     'turkey': 'tr',
 }
 
-region_default = regions['europe_nordic_east']
-
 platforms = {
     'br': 'BR1',
     'eune': 'EUN1',

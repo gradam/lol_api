@@ -2,11 +2,13 @@
 import pytest
 
 from riotApi import Client
-from riotApi.data import region_default, api_versions
+from riotApi.data import api_versions
 from riotApi._utils import base_url
 from utils import test_api_key, BaseTestClass
 
-summoner = Client(test_api_key, unlimited=True).Summoner
+
+region_default = 'euw'
+summoner = Client(test_api_key, region_default, unlimited=True).Summoner
 
 version = api_versions['summoner']
 api_url = '{}/api/lol/{}/{}/summoner/'.format(base_url, region_default, version)

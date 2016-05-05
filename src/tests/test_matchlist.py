@@ -2,11 +2,13 @@
 import pytest
 
 from riotApi import Client
-from riotApi.data import region_default, api_versions
+from riotApi.data import api_versions
 from riotApi._utils import base_url
 from utils import test_api_key, BaseTestClass
 
-matchlist = Client(test_api_key, unlimited=True).Matchlist
+
+region_default = 'eune'
+matchlist = Client(test_api_key, region_default, unlimited=True).Matchlist
 
 
 version = api_versions['matchlist']

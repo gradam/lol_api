@@ -2,12 +2,13 @@
 import pytest
 
 from riotApi import Client
-from riotApi.data import region_default, api_versions
+from riotApi.data import api_versions
 from riotApi._utils import base_url
 from utils import test_api_key, BaseTestClass
 
 
-static_api = Client(test_api_key, unlimited=True).LolStaticData
+region_default = 'eune'
+static_api = Client(test_api_key, region_default, unlimited=True).LolStaticData
 version = api_versions['lol-static-data']
 api_url = '{}/api/lol/static-data/{}/{}'.format(base_url, region_default, version)
 

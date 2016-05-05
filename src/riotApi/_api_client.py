@@ -13,26 +13,32 @@ from riotApi._matchlist import Matchlist
 from riotApi._stats import Stats
 from riotApi._summoner import Summoner
 from riotApi._team import Team
-from riotApi._utils import RateLimitWatcher
+from riotApi._utils import RateLimitWatcher, region_validation
 
 
 class Client:
-    def __init__(self, api_key, production=False, unlimited=False):
+    def __init__(self, api_key, region_default, production=False, unlimited=False):
         self.api_key = api_key
+        self.region_default = region_validation(region_default)
         self.watcher = RateLimitWatcher(production, unlimited=unlimited)
 
-        self.LolStaticData = LolStaticData(api_key=self.api_key)
+        self.LolStaticData = LolStaticData(api_key=self.api_key, region_default=self.region_default)
         self.LocalData = LocalData(self.LolStaticData)
-        self.LolStatus = LolStatus()
+        self.LolStatus = LolStatus(region_default=self.region_default)
 
-        self.Championmastery = ChampionMastery(api_key=self.api_key, watcher=self.watcher)
-        self.Champion = Champion(api_key=self.api_key, watcher=self.watcher)
-        self.CurrentGame = CurrentGame(api_key=self.api_key, watcher=self.watcher)
-        self.FeaturedGames = FeaturedGames(api_key=self.api_key, watcher=self.watcher)
-        self.Game = Game(api_key=self.api_key, watcher=self.watcher)
-        self.League = League(api_key=self.api_key, watcher=self.watcher)
-        self.Match = Match(api_key=self.api_key, watcher=self.watcher)
-        self.Matchlist = Matchlist(api_key=self.api_key, watcher=self.watcher)
-        self.Stats = Stats(api_key=self.api_key, watcher=self.watcher)
-        self.Summoner = Summoner(api_key=self.api_key, watcher=self.watcher)
-        self.Team = Team(api_key=self.api_key, watcher=self.watcher)
+        parameters = {'api_key': self.api_key,
+                      'watcher': self.watcher,
+                      'region_default': self.region_default}
+
+        self.Championmastery = ChampionMastery(**parameters)
+        self.Champion = Champion(**parameters)
+        self.CurrentGame = CurrentGame(**parameters)
+        self.FeaturedGames = FeaturedGames(**parameters)
+        self.Game = Game(**parameters)
+        self.League = League(**parameters)
+        self.Match = Match(**parameters)
+        self.Matchlist = Matchlist(**parameters)
+        self.Stats = Stats(**parameters)
+        self.Summoner = Summoner(**parameters)
+        self.Team = Team(**parameters)
+

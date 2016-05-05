@@ -2,11 +2,12 @@
 import pytest
 
 from riotApi import Client
-from riotApi.data import region_default
 from utils import test_api_key, BaseTestClass
 
 
-lol_status = Client(test_api_key, unlimited=True).LolStatus
+region_default = 'eune'
+
+lol_status = Client(test_api_key, region_default, unlimited=True).LolStatus
 api_url = 'http://status.leagueoflegends.com/shards'
 
 

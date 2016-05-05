@@ -2,11 +2,13 @@
 import pytest
 
 from riotApi import Client
-from riotApi.data import region_default, api_versions
+from riotApi.data import api_versions
 from riotApi._utils import base_url
 from utils import test_api_key, BaseTestClass
 
-stats = Client(test_api_key, unlimited=True).Stats
+
+region_default = 'euw'
+stats = Client(test_api_key, region_default, unlimited=True).Stats
 
 version = api_versions['stats']
 api_url = '{}/api/lol/{}/{}/stats/'.format(base_url, region_default, version)

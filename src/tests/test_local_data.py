@@ -10,7 +10,7 @@ from utils import test_api_key, mock_request_get
 from riotApi import Client
 
 
-local_data = Client(test_api_key, unlimited=True).LocalData
+local_data = Client(test_api_key, 'eune', unlimited=True).LocalData
 
 
 def raise_file_exists_error(path):

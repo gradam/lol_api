@@ -2,12 +2,14 @@
 import pytest
 
 from riotApi import Client
-from riotApi.data import region_default, platforms
+from riotApi.data import platforms
 from riotApi._utils import base_url
 from utils import test_api_key, BaseTestClass
 
+region_default = 'eune'
+
 platform = platforms[region_default]
-current_game = Client(test_api_key, unlimited=True).CurrentGame
+current_game = Client(test_api_key, region_default, unlimited=True).CurrentGame
 
 
 class TestSpectatorGameInfo(BaseTestClass):

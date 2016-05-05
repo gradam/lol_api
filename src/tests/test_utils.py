@@ -3,8 +3,10 @@ from time import time
 import pytest
 import requests
 
-from riotApi._utils import check_response_code, RateLimitWatcher, count_request, get_champion_id
-from riotApi.exceptions import RateLimitExceededError
+from riotApi._utils import check_response_code, RateLimitWatcher, count_request, get_champion_id, \
+    region_validation
+from riotApi.exceptions import RateLimitExceededError, InvalidRegionError
+from riotApi.data import regions
 
 
 def test_check_response_code():
@@ -64,7 +66,7 @@ class TestCountRequest:
         self.watcher = RateLimitWatcher(production=False)
 
     def test_return(self):
-        assert self.api_func() == self.message
+        assert self.api_func(region='eune') == self.message
 
     def test_counter(self):
         self.api_func(region='euw')
@@ -84,3 +86,13 @@ def test_get_champion_id():
 
     with pytest.raises(NotImplementedError):
         get_champion_id('annie')
+
+
+def test_region_validation():
+    assert region_validation('brazil') == regions['brazil']
+    assert region_validation(regions['brazil']) == regions['brazil']
+
+
+def test_region_validation_invalid_region():
+    with pytest.raises(InvalidRegionError):
+        region_validation('not_valid')

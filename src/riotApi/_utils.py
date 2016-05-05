@@ -6,8 +6,8 @@ from collections import deque, namedtuple
 
 import requests
 
-from riotApi.data import error_codes, regions, region_default
-from riotApi.exceptions import RateLimitExceededError
+from riotApi.data import error_codes, regions
+from riotApi.exceptions import RateLimitExceededError, InvalidRegionError
 
 
 directory = os.path.dirname(os.path.realpath(__file__))
@@ -65,8 +65,9 @@ def count_request(func):
     def wrapper(self, *args, **kwargs):
         try:
             region = kwargs['region']
+            region_validation(region)
         except KeyError:
-            region = region_default
+            region = self.region_default
 
         if self.watcher.request_available(region):
             self.watcher.add_request(region)
@@ -94,4 +95,12 @@ def to_comma_separated(ids):
     else:
         return ','.join([str(x) for x in ids])
 
+
+def region_validation(region):
+    try:
+        return regions[region]
+    except KeyError:
+        if region in regions.values():
+            return region
+    raise InvalidRegionError
 

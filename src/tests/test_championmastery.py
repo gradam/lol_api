@@ -2,11 +2,13 @@
 import pytest
 
 from riotApi import Client
-from riotApi.data import region_default, platforms
+from riotApi.data import platforms
 from riotApi._utils import base_url
 from utils import test_api_key, BaseTestClass
 
-championmastery = Client(test_api_key, unlimited=True).Championmastery
+region_default = 'eune'
+
+championmastery = Client(test_api_key, region_default, unlimited=True).Championmastery
 platform = platforms[region_default]
 api_url = '{}/championmastery/location/{}/player/'.format(base_url, platform)
 
