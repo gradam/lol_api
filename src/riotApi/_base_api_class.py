@@ -8,7 +8,7 @@ class BaseApiClass:
     def __init__(self, api_key=None, watcher=None, region_default=None):
         self.api_key = api_key
         self.watcher = watcher
-        self.region_default = region_default
+        self.region_default = region_default.lower()
 
     def _set_options(self, **kwargs):
         options = {}
