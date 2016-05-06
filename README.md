@@ -56,6 +56,6 @@ To run test go to `src` or `tests` directory and run:
 
 # TODO:
 * Better documentation
-* Queue for requests when limit exceeded
-* Add inplace translation champion name to id
 * Add possibility to cache responses
+* Add inplace translation champion name to id
+* Queue for requests when limit exceeded
