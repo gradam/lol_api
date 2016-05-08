@@ -98,6 +98,7 @@ To run tests:
 ``py.test``
 
 or run:
+
 ``python setup.py test``
 
 TODO:
