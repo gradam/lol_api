@@ -6,6 +6,21 @@ Tested on **python 3.5** and **python 2.7.11**
 Full api documentation:
 `link <https://developer.riotgames.com/api/methods>`__
 
+
+Installation:
+=============
+Package is available on PyPI so just use:
+
+``pip install lol_api``
+
+or to install from source:
+
+``git clone https://github.com/gradam/lol_api.git``
+
+``python setup.py test``
+
+``python setup.py install``
+
 Usage:
 ======
 
