@@ -76,9 +76,12 @@ Running tests
 
 Requirements for tests are in tests\_requirements.txt file.
 
-To run test go to ``src`` or ``tests`` directory and run:
+To run test go to ``tests`` directory and run:
 
 ``py.test``
+
+or better run:
+``python setup.py test``
 
 TODO:
 =====
