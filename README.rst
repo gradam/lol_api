@@ -45,7 +45,7 @@ Each method returns data in form of dictionary
 Extra arguments:
 ================
 
-To specify the region pass ``region='your_region'`` as argument to
+To specify the region pass ``region='your_region'`` as the argument to
 method, if not specified ``region_default`` passed to Client will be
 used.
 
@@ -71,7 +71,7 @@ Additional Data:
 Rate limit:
 ===========
 
-Wrapper automatically watch to no exceed requests rate limit per region.
+Wrapper automatically watch to not exceed requests rate limit per region.
 Default value is 10 per 10 seconds and 500 per 10 minutes. This is
 default `limit <https://developer.riotgames.com/docs/api-keys>`__ for
 non production keys. Id order to use production limit ( 3000 per 10
