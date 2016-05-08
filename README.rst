@@ -64,7 +64,7 @@ seconds and 180000 per 10 minutes ) pass ``production=True`` to Client:
 
 .. code:: python
 
-    client = Client('api_key', production=True) 
+    client = Client('api_key', 'euw', production=True)
 
 You can also turn this off by passing ``unlimited=True`` to Client.
 
