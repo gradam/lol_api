@@ -8,6 +8,11 @@ class BaseTestClass:
     control_url = ''
     test_json = {"3": "bb", "a": 4}
 
+    #
+    request_params = {}
+    mock_request = None  # Will be MockRequest object
+    requested_url = ''
+
     @pytest.fixture(autouse=True)
     def mock_request_get(self, monkeypatch):
         monkeypatch.setattr(requests, 'get', self.get_mock_func)

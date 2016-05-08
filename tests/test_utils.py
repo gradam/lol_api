@@ -29,8 +29,8 @@ class TestRateLimitWatcher:
         assert len(watcher.made_requests['eune']) == 1
 
     def test_reload(self, watcher):
-        watcher.made_requests['euw'].append(time() - 900)
-        watcher.made_requests['euw'].append(time())
+        watcher.made_requests['euw'].append(time() - 601)
+        watcher.made_requests['euw'].append(time() - 599)
         watcher._reload('euw')
         assert len(watcher.made_requests['euw']) == 1
 

@@ -1,4 +1,6 @@
-It is python wrapper for League of Legends api
+It is python wrapper for League of Legends api that watch out to not exceed rate limit.
+
+Tested on **python 3.5** and **python 2.7.11**
 
 Full api documentation: [link](https://developer.riotgames.com/api/methods)
 
@@ -36,7 +38,7 @@ client.LolStaticData.champion(champData='all')
 
 
 # Rate limit:
-Wrapper automatically watch to no exceed requests rate limit. Default value is 10 per 10 seconds and 500 per 10 minutes.
+Wrapper automatically watch to no exceed requests rate limit per region. Default value is 10 per 10 seconds and 500 per 10 minutes.
 This is default [limit](https://developer.riotgames.com/docs/api-keys) for non production keys.
 Id order to use production limit ( 3000 per 10 seconds and 180000 per 10 minutes ) pass `production=True` to Client:
 ```python
