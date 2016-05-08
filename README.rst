@@ -24,7 +24,7 @@ or to install from source:
 Usage:
 ======
 
-To start using api simple import lol\_api and then create Client object
+To start using this api wrapper simple import lol\_api and then create Client object
 and pass as arguments api\_key and default region to use when no other
 specified in api call. eg.
 
