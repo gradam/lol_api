@@ -91,11 +91,13 @@ Running tests
 
 Requirements for tests are in tests\_requirements.txt file.
 
-To run test go to ``tests`` directory and run:
+To run tests:
+
+``pip install -r tests_requirements.txt``
 
 ``py.test``
 
-or better run:
+or run:
 ``python setup.py test``
 
 TODO:
