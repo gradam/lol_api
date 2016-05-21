@@ -3,8 +3,9 @@ from time import time
 import pytest
 import requests
 
-from lol_api._utils import check_response_code, RateLimitWatcher, count_request, get_champion_id, \
+from lol_api._utils import check_response_code, count_request, get_champion_id, \
     region_validation
+from lol_api._utils import RateLimitWatcher
 from lol_api.exceptions import RateLimitExceededError, InvalidRegionError
 from lol_api.data import regions
 
