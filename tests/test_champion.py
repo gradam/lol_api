@@ -4,7 +4,7 @@ import pytest
 from lol_api import Client
 from lol_api.data import api_versions
 from lol_api._utils import base_url
-from utils import BaseTestClass, test_api_key
+from tests.utils import BaseTestClass, test_api_key
 
 
 champion_api = Client(test_api_key, 'eune', unlimited=True).Champion

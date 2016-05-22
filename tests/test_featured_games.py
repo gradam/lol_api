@@ -2,7 +2,7 @@
 import pytest
 
 from lol_api import Client
-from utils import test_api_key, BaseTestClass
+from tests.utils import test_api_key, BaseTestClass
 
 region_default = 'euw'
 

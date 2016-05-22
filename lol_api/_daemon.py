@@ -1,9 +1,10 @@
 # encoding: utf-8
 
 import json
-import socketserver
 from time import gmtime, strftime
 from functools import partial
+
+import socketserver
 
 from lol_api._utils import RateLimitWatcher
 

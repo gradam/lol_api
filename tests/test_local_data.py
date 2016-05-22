@@ -1,12 +1,9 @@
 # encoding: utf-8
-try:
-    from unittest.mock import mock_open
-except ImportError:
-    from mock import mock_open
+from unittest.mock import mock_open
 
 import pytest
 
-from utils import test_api_key, mock_request_get
+from tests.utils import test_api_key, mock_request_get
 from lol_api import Client
 
 
@@ -20,10 +17,7 @@ def raise_file_exists_error(path):
 @pytest.fixture(autouse=True)
 def mock_open_func(mocker):
     m = mock_open()
-    try:
-        mocker.patch('builtins.open', m, create=True)
-    except ImportError:
-        mocker.patch('__builtin__.open', m, create=True)
+    mocker.patch('builtins.open', m, create=True)
 
 
 @pytest.fixture(autouse=True)
