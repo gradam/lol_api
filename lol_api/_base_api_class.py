@@ -5,9 +5,10 @@ from lol_api._utils import check_response_code, region_validation
 
 
 class BaseApiClass:
-    def __init__(self, api_key=None, watcher=None, region_default=None):
+    def __init__(self, api_key=None, watcher=None, region_default=None, server=()):
         self.api_key = api_key
         self.watcher = watcher
+        self.server = server
         self.region_default = region_default.lower()
 
     def _set_options(self, **kwargs):

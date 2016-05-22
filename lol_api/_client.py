@@ -19,8 +19,9 @@ from lol_api._utils import region_validation
 
 
 class Client:
-    def __init__(self, api_key, region_default, production=False, unlimited=False):
+    def __init__(self, api_key, region_default, production=False, unlimited=False, server=()):
         self.api_key = api_key
+        self.server = server
         self.region_default = region_validation(region_default)
         self.watcher = RateLimitWatcher(production, unlimited=unlimited)
 
@@ -30,7 +31,8 @@ class Client:
 
         parameters = {'api_key': self.api_key,
                       'watcher': self.watcher,
-                      'region_default': self.region_default}
+                      'region_default': self.region_default,
+                      'server': self.server}
 
         self.Championmastery = ChampionMastery(**parameters)
         self.Champion = Champion(**parameters)

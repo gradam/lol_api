@@ -2,6 +2,8 @@
 
 import os
 import time
+import json
+import socket
 from collections import namedtuple, deque
 
 import requests
@@ -20,6 +22,22 @@ def check_response_code(response_code):
         raise requests.RequestException(error_massage)
 
 
+def send_request(api_key, region, server):
+    data = json.dumps({
+        'api_key': api_key,
+        'region': region
+    })
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    sock.connect(server)
+    sock.sendall(bytes(data, 'utf-8'))
+
+    received_data = sock.recv(1024).decode('utf-8')
+    response = json.loads(received_data)['available']
+
+    return response
+
+
 def count_request(func):
     def wrapper(self, *args, **kwargs):
         try:
@@ -28,8 +46,16 @@ def count_request(func):
         except KeyError:
             region = self.region_default
 
-        if self.watcher.request_available(region):
-            self.watcher.add_request(region)
+        if self.server:
+            is_available = send_request(self.api_key, region, self.server)
+        else:
+            if self.watcher.request_available(region):
+                is_available = True
+                self.watcher.add_request(region)
+            else:
+                is_available = False
+
+        if is_available:
             return func(self, *args, **kwargs)
         else:
             raise RateLimitExceededError

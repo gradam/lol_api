@@ -57,6 +57,7 @@ class TestRateLimitWatcher:
 
 class TestCountRequest:
     message = 'test'
+    server = ()
 
     @count_request
     def api_func(self, region=None):
