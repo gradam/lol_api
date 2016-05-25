@@ -1,7 +1,7 @@
 It is python wrapper for League of Legends api that watch out to not
 exceed rate limit.
 
-Tested on **python 3.5** and **python 2.7.11**
+Tested on **python 3.5**
 
 Full api documentation:
 `link <https://developer.riotgames.com/api/methods>`__
