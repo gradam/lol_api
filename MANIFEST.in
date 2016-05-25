@@ -1,2 +1,2 @@
-include README.md
-include lol_api/api
+include README.rst
+include lol_api/api/*

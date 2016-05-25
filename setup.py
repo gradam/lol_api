@@ -7,7 +7,7 @@ def readme():
 
 setup(
     name='lol_api',
-    version='0.1.3',
+    version='0.1.5',
     description='wrapper and utils for League of Legends API',
     long_description=readme(),
     url='https://github.com/gradam/lol_api',
@@ -24,6 +24,7 @@ setup(
     setup_requires=['pytest-runner'],
     tests_require=['pytest', 'pytest-mock'],
     packages=['lol_api'],
+    package_data={'lol_api': ['api/*']},
     install_requires=[
       'requests',
     ],
