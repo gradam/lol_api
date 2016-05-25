@@ -17,6 +17,7 @@ class ChampionMastery(BaseApiClass):
         champion_id = get_champion_id(champion)
         platform = platforms[region]
         url = '{}{}/player/{}/champion/{}'.format(api_url, platform, player_id, champion_id)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -28,6 +29,7 @@ class ChampionMastery(BaseApiClass):
         region = self._region_to_valid(region)
         platform = platforms[region]
         url = '{}{}/player/{}/champions'.format(api_url, platform, player_id)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -39,6 +41,7 @@ class ChampionMastery(BaseApiClass):
         region = self._region_to_valid(region)
         platform = platforms[region]
         url = '{}{}/player/{}/score'.format(api_url, platform, player_id)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -50,5 +53,6 @@ class ChampionMastery(BaseApiClass):
         region = self._region_to_valid(region)
         platform = platforms[region]
         url = '{}{}/player/{}/topchampions'.format(api_url, platform, player_id)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 

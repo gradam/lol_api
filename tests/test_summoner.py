@@ -12,6 +12,7 @@ summoner = Client(test_api_key, region_default, unlimited=True).Summoner
 
 version = api_versions['summoner']
 api_url = '{}/api/lol/{}/{}/summoner/'.format(base_url, region_default, version)
+api_url = api_url.format(region_default)
 
 
 class TestByName(BaseTestClass):

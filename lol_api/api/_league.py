@@ -19,6 +19,7 @@ class League(BaseApiClass):
         region = self._region_to_valid(region)
         ids = to_comma_separated(summoner_ids)
         url = '{}{}/{}/league/by-summoner/{}'.format(api_url, region, version, ids)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -31,6 +32,7 @@ class League(BaseApiClass):
         region = self._region_to_valid(region)
         ids = to_comma_separated(summoner_ids)
         url = '{}{}/{}/league/by-summoner/{}/entry'.format(api_url, region, version, ids)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -43,6 +45,7 @@ class League(BaseApiClass):
         region = self._region_to_valid(region)
         ids = to_comma_separated(team_ids)
         url = '{}{}/{}/league/by-team/{}'.format(api_url, region, version, ids)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -55,6 +58,7 @@ class League(BaseApiClass):
         region = self._region_to_valid(region)
         ids = to_comma_separated(team_ids)
         url = '{}{}/{}/league/by-team/{}/entry'.format(api_url, region, version, ids)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -65,6 +69,7 @@ class League(BaseApiClass):
         """
         region = self._region_to_valid(region)
         url = '{}{}/{}/league/challenger'.format(api_url, region, version)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -75,4 +80,5 @@ class League(BaseApiClass):
         """
         region = self._region_to_valid(region)
         url = '{}{}/{}/league/master'.format(api_url, region, version)
+        url = url.format(region)
         return self._get_data(url, **kwargs)

@@ -16,6 +16,7 @@ class Champion(BaseApiClass):
         """
         region = self._region_to_valid(region)
         url = '{}{}/{}/champion'.format(api_url, region, version)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -26,4 +27,5 @@ class Champion(BaseApiClass):
         """
         region = self._region_to_valid(region)
         url = '{}{}/{}/champion/{}'.format(api_url, region, version, champion_id)
+        url = url.format(region)
         return self._get_data(url, **kwargs)

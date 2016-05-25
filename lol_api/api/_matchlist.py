@@ -17,4 +17,5 @@ class Matchlist(BaseApiClass):
         """
         region = self._region_to_valid(region)
         url = '{}{}/{}/matchlist/by-summoner/{}'.format(api_url, region, version, summoner_id)
+        url = url.format(region)
         return self._get_data(url, **kwargs)

@@ -24,7 +24,7 @@ class BaseApiClass:
         options = self._set_options(**kwargs)
         data = requests.get(url, params=options)
         response_code = data.status_code
-        check_response_code(response_code)
+        check_response_code(response_code, url)
         return data.json()
 
     def _region_to_valid(self, region):

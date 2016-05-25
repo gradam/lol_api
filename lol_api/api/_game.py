@@ -16,4 +16,5 @@ class Game(BaseApiClass):
         """
         region = self._region_to_valid(region)
         url = '{}{}/{}/game/by-summoner/{}/recent'.format(api_url, region, version, summoner_id)
+        url = url.format(region)
         return self._get_data(url, **kwargs)

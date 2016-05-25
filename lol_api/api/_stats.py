@@ -17,6 +17,7 @@ class Stats(BaseApiClass):
         """
         region = self._region_to_valid(region)
         url = '{}{}/{}/stats/by-summoner/{}/ranked'.format(api_url, region, version, summoner_id)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -27,5 +28,6 @@ class Stats(BaseApiClass):
         """
         region = self._region_to_valid(region)
         url = '{}{}/{}/stats/by-summoner/{}/summary'.format(api_url, region, version,summoner_id)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 

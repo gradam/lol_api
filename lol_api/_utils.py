@@ -13,12 +13,13 @@ from lol_api.exceptions import RateLimitExceededError, InvalidRegionError
 
 
 directory = os.path.dirname(os.path.realpath(__file__))
-base_url = 'https://global.api.pvp.net'
+base_url = 'https://{}.api.pvp.net'
 
 
-def check_response_code(response_code):
+def check_response_code(response_code, url):
     if response_code != 200:
-        error_massage = 'Error code: {} - {}'.format(response_code, error_codes[response_code])
+        error_massage = 'Error code: {} - {}\nurl={}'.format(response_code,
+                                                             error_codes[response_code], url)
         raise requests.RequestException(error_massage)
 
 
@@ -82,6 +83,7 @@ def to_comma_separated(ids):
 
 
 def region_validation(region):
+    region = region.lower()
     try:
         return regions[region]
     except KeyError:

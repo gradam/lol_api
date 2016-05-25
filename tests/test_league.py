@@ -12,6 +12,7 @@ league = Client(test_api_key, region_default, unlimited=True).League
 
 version = api_versions['league']
 api_url = '{}/api/lol/{}/{}/league/'.format(base_url, region_default, version)
+api_url = api_url.format(region_default)
 
 
 class TestBySummoners(BaseTestClass):
@@ -62,6 +63,7 @@ class TestByTeamsEntry(BaseTestClass):
 
     def test_with_string(self):
         test_url = '{}/api/lol/las/{}/league/by-team/123,222/entry'.format(base_url, version)
+        test_url = test_url.format('las')
         league.by_teams_entry('123,222', region='las')
         assert self.requested_url == test_url
 

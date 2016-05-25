@@ -17,6 +17,7 @@ class Match(BaseApiClass):
         """
         region = self._region_to_valid(region)
         url = '{}{}/{}/match/{}'.format(api_url, region, version, match_id)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
 

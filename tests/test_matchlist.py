@@ -13,6 +13,7 @@ matchlist = Client(test_api_key, region_default, unlimited=True).Matchlist
 
 version = api_versions['matchlist']
 api_url = '{}/api/lol/{}/{}/matchlist/'.format(base_url, region_default, version)
+api_url = api_url.format(region_default)
 
 
 class TestBySummoner(BaseTestClass):

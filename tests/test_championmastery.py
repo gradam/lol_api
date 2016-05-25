@@ -11,6 +11,7 @@ region_default = 'eune'
 championmastery = Client(test_api_key, region_default, unlimited=True).Championmastery
 platform = platforms[region_default]
 api_url = '{}/championmastery/location/{}/player/'.format(base_url, platform)
+api_url = api_url.format(region_default)
 
 
 class TestChampionMaster(BaseTestClass):

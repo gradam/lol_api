@@ -11,6 +11,7 @@ game = Client(test_api_key, region_default, unlimited=True).Game
 
 version = api_versions['game']
 api_url = '{}/api/lol/{}/{}/game/'.format(base_url, region_default, version)
+api_url = api_url.format(region_default)
 
 
 class TestRecent(BaseTestClass):

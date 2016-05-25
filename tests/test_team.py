@@ -12,6 +12,7 @@ team = Client(test_api_key, 'euw', unlimited=True).Team
 
 version = api_versions['team']
 api_url = '{}/api/lol/{}/{}/team/'.format(base_url, region_default, version)
+api_url = api_url.format(region_default)
 
 
 class TestBySummoners(BaseTestClass):

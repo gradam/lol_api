@@ -5,6 +5,7 @@ from lol_api._utils import base_url
 
 version = api_versions['lol-static-data']
 api_url = '{}/api/lol/static-data/'.format(base_url)
+api_url = api_url.format('global')
 
 
 class LolStaticData(BaseApiClass):

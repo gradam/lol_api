@@ -15,6 +15,7 @@ current_game = Client(test_api_key, region_default, unlimited=True).CurrentGame
 class TestSpectatorGameInfo(BaseTestClass):
     control_url = '{}/observer-mode/rest/consumer/getSpectatorGameInfo/EUN1/123'.format(base_url,
                                                                                         platform)
+    control_url = control_url.format(region_default)
 
     @pytest.fixture
     def data(self):

@@ -11,12 +11,12 @@ from lol_api.data import regions
 
 
 def test_check_response_code():
-    check_response_code(200)
+    check_response_code(200, 'some url')
 
 
 def test_bad_response_code():
     with pytest.raises(requests.RequestException):
-        check_response_code(500)
+        check_response_code(500, 'some url')
 
 
 class TestRateLimitWatcher:

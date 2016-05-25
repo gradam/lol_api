@@ -12,6 +12,7 @@ stats = Client(test_api_key, region_default, unlimited=True).Stats
 
 version = api_versions['stats']
 api_url = '{}/api/lol/{}/{}/stats/'.format(base_url, region_default, version)
+api_url = api_url.format(region_default)
 
 
 class TestRanked(BaseTestClass):

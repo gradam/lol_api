@@ -7,8 +7,10 @@ from lol_api._utils import base_url
 from tests.utils import BaseTestClass, test_api_key
 
 
-champion_api = Client(test_api_key, 'eune', unlimited=True).Champion
+region = 'eune'
+champion_api = Client(test_api_key, region, unlimited=True).Champion
 api_url = '{}/api/lol/eune/{}'.format(base_url, api_versions['champion'])
+api_url = api_url.format(region)
 
 
 class TestChampionsAll(BaseTestClass):

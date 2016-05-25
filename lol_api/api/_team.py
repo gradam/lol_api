@@ -19,6 +19,7 @@ class Team(BaseApiClass):
         region = self._region_to_valid(region)
         ids = to_comma_separated(summoner_ids)
         url = '{}{}/{}/team/by-summoner/{}'.format(api_url, region, version, ids)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -31,4 +32,5 @@ class Team(BaseApiClass):
         region = self._region_to_valid(region)
         ids = to_comma_separated(team_ids)
         url = '{}{}/{}/team/{}'.format(api_url, region, version, ids)
+        url = url.format(region)
         return self._get_data(url, **kwargs)

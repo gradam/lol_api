@@ -19,6 +19,7 @@ class Summoner(BaseApiClass):
         region = self._region_to_valid(region)
         names = to_comma_separated(summoner_names)
         url = '{}{}/{}/summoner/by-name/{}'.format(api_url, region, version, names)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -31,6 +32,7 @@ class Summoner(BaseApiClass):
         region = self._region_to_valid(region)
         ids = to_comma_separated(summoner_ids)
         url = '{}{}/{}/summoner/{}'.format(api_url, region, version, ids)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -43,6 +45,7 @@ class Summoner(BaseApiClass):
         region = self._region_to_valid(region)
         ids = to_comma_separated(summoner_ids)
         url = '{}{}/{}/summoner/{}/masteries'.format(api_url, region, version, ids)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -55,6 +58,7 @@ class Summoner(BaseApiClass):
         region = self._region_to_valid(region)
         ids = to_comma_separated(summoner_ids)
         url = '{}{}/{}/summoner/{}/name'.format(api_url, region, version, ids)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
 
     @count_request
@@ -67,4 +71,5 @@ class Summoner(BaseApiClass):
         region = self._region_to_valid(region)
         ids = to_comma_separated(summoner_ids)
         url = '{}{}/{}/summoner/{}/runes'.format(api_url, region, version, ids)
+        url = url.format(region)
         return self._get_data(url, **kwargs)
