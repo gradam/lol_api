@@ -7,7 +7,7 @@ def readme():
 
 setup(
     name='lol_api',
-    version='0.1.2',
+    version='0.1.3',
     description='wrapper and utils for League of Legends API',
     long_description=readme(),
     url='https://github.com/gradam/lol_api',
