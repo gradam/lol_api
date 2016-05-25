@@ -33,6 +33,13 @@ specified in api call. eg.
     from lol_api import Client
     client = Client('my_api_key', 'eune')
 
+If you are going to use Daemon as a request watcher service pass tuple containing address and port.
+.. code:: python
+
+    from lol_api import Client
+    server_addr = ('localhost', 8877)
+    client = Client('my_api_key', 'euw', server=server_addr)
+
 Structure of a class correspond to Riot's documentation. So to get
 information about summoner by name:
 
@@ -41,6 +48,29 @@ information about summoner by name:
     client.Summoner.by_name('my_name')
 
 Each method returns data in form of dictionary
+
+Daemon:
+=======
+
+To use Daemon for watching request count run him in another python instance.
+
+.. code:: python
+
+    from lol_api import ApiDaemon
+    daemon = ApiDaemon()
+    daemon.run()
+
+
+Additional arguments:
+
+- ``port`` - Port to run on. Default(8877)
+- ``host`` - Host for socketserver.ThreadingTCPServer. Default('localhost')
+- ``production`` - set requests limit for production limits. Default(False)
+- ``unlimited`` - do not count requests. Default(False)
+- ``log`` - printout information about inquiry. Default(True)
+
+
+
 
 Extra arguments:
 ================
