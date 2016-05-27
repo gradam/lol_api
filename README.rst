@@ -24,30 +24,33 @@ or to install from source:
 Usage:
 ======
 
-To start using this api wrapper simple import lol\_api and then create Client object
-and pass as arguments api\_key and default region to use when no other
-specified in api call. eg.
+First you need to set up few thing. To do so import settings.
 
 .. code:: python
 
-    from lol_api.client import Client
-    client = Client('my_api_key', 'eune')
+    from lol_api.settings import settings
+    settings.API_KEY = 'your_api_key'
+    # If you do not wont to pass region to each api call just do:
+    settings.REGION_DEFAULT = 'some_region'
+    # Now if you are going to use watcher daemon you have to pass server info:
+    settings.DAEMON_SERVER = ('server_ip', port)
+    # If you prefer to use local watcher instance
+    settings.initialize_watcher()
 
-If you are going to use Daemon as a request watcher service pass tuple containing address and port.
+Example:
+--------
+
 .. code:: python
 
-    from lol_api.client import Client
-    server_addr = ('localhost', 8877)
-    client = Client('my_api_key', 'euw', server=server_addr)
+    from lol_api.settings import settings
+    from lol_api.api.champion import champion
 
-Structure of a class correspond to Riot's documentation. So to get
-information about summoner by name:
+    settings.API_KEY = 'mysecretapikey123'
+    settings.REGION_DEFAULT = 'eune'
+    settings.initialie_watcher(production=True)
 
-.. code:: python
+    data = champion(champion_id=2)
 
-    client.Summoner.by_name('my_name')
-
-Each method returns data in form of dictionary
 
 Daemon:
 =======
@@ -84,7 +87,7 @@ named exactly as expected by api. eg.
 
 .. code:: python
 
-    client.LolStaticData.champion(champData='all')
+    lol_api.api.lol_static_data.champion(champData='all')
 
 Additional Data:
 ================
@@ -105,13 +108,13 @@ Wrapper automatically watch to not exceed requests rate limit per region.
 Default value is 10 per 10 seconds and 500 per 10 minutes. This is
 default `limit <https://developer.riotgames.com/docs/api-keys>`__ for
 non production keys. Id order to use production limit ( 3000 per 10
-seconds and 180000 per 10 minutes ) pass ``production=True`` to Client:
+seconds and 180000 per 10 minutes ) set PRODUCTION to True in settings.
 
 .. code:: python
 
-    client = Client('api_key', 'euw', production=True)
+    lol_api.settings.settings.PRODUCTION = True
 
-You can also turn this off by passing ``unlimited=True`` to Client.
+You can also turn this off by setting ``UNLIMITED=True``.
 
 **If Rate limit is exceeded
 ``lol_api.exceptions.RateLimitExceededError`` will be raised.**
