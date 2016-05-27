@@ -1,14 +1,15 @@
 # encoding: utf-8
 import pytest
+from tests.utils import region_default, initialize_settings, BaseTestClass
 
-from lol_api.client import Client
-from tests.utils import test_api_key, BaseTestClass
+from lol_api.api.lol_status import *
 
 
-region_default = 'eune'
-
-lol_status = Client(test_api_key, region_default, unlimited=True).LolStatus
 api_url = 'http://status.leagueoflegends.com/shards'
+
+
+def setup_module(module):
+    initialize_settings()
 
 
 class TestShards(BaseTestClass):
@@ -16,11 +17,7 @@ class TestShards(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return lol_status.shards()
-
-    def test_api_key(self, data):
-        with pytest.raises(KeyError):
-            key = self.request_params['api_key']
+        return shards()
 
 
 class TestShardsRegion(BaseTestClass):
@@ -28,8 +25,5 @@ class TestShardsRegion(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return lol_status.shards_region()
+        return shards_region()
 
-    def test_api_key(self, data):
-        with pytest.raises(KeyError):
-            key = self.request_params['api_key']

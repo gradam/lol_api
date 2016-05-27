@@ -1,17 +1,19 @@
 # encoding: utf-8
 import pytest
 
-from lol_api.client import Client
+
+from lol_api.api.lol_static_data import *
 from lol_api.data import api_versions
 from lol_api._utils import base_url
-from tests.utils import test_api_key, BaseTestClass
+from tests.utils import region_default, initialize_settings, BaseTestClass
 
-
-region_default = 'eune'
-static_api = Client(test_api_key, region_default, unlimited=True).LolStaticData
 version = api_versions['lol-static-data']
 api_url = '{}/api/lol/static-data/{}/{}'.format(base_url, region_default, version)
 api_url = api_url.format('global')
+
+
+def setup_module(module):
+    initialize_settings()
 
 
 class TestChampionsAll(BaseTestClass):
@@ -19,7 +21,7 @@ class TestChampionsAll(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.champions_all(champData='all')
+        return champions_all(champData='all')
 
     def test_params(self, data):
         assert self.request_params['champData'] == 'all'
@@ -30,7 +32,7 @@ class TestChampion(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.champion(champ_id=1, champData='all')
+        return champion(champ_id=1, champData='all')
 
     def test_params(self, data):
         assert self.request_params['champData'] == 'all'
@@ -41,7 +43,7 @@ class TestItemsAll(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.items_all(itemListData='all')
+        return items_all(itemListData='all')
 
     def test_params(self, data):
         assert self.request_params['itemListData'] == 'all'
@@ -52,7 +54,7 @@ class TestItem(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.item(item_id=1, itemListData='all')
+        return item(item_id=1, itemListData='all')
 
     def test_params(self, data):
         assert self.request_params['itemListData'] == 'all'
@@ -63,7 +65,7 @@ class TestLanguageString(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.language_string(locale='pl_PL')
+        return language_string(locale='pl_PL')
 
     def test_params(self, data):
         assert self.request_params['locale'] == 'pl_PL'
@@ -74,7 +76,7 @@ class Test(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.languages()
+        return languages()
 
 
 class TestMaps(BaseTestClass):
@@ -82,7 +84,7 @@ class TestMaps(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.maps(version='6.4')
+        return maps(version='6.4')
 
     def test_params(self, data):
         assert self.request_params['version'] == '6.4'
@@ -93,7 +95,7 @@ class TestMasteryAll(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.mastery_all(masteryListData='all')
+        return mastery_all(masteryListData='all')
 
     def test_params(self, data):
         assert self.request_params['masteryListData'] == 'all'
@@ -104,7 +106,7 @@ class TestMastery(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.mastery(mastery_id=1, masteryListData='all')
+        return mastery(mastery_id=1, masteryListData='all')
 
     def test_params(self, data):
         assert self.request_params['masteryListData'] == 'all'
@@ -115,7 +117,7 @@ class TestRealm(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.realm()
+        return realm()
 
 
 class TestRuneAll(BaseTestClass):
@@ -123,7 +125,7 @@ class TestRuneAll(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.rune_all(runeListData='all')
+        return rune_all(runeListData='all')
 
     def test_params(self, data):
         assert self.request_params['runeListData'] == 'all'
@@ -134,7 +136,7 @@ class TestRune(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.rune(rune_id=1, runeListData='all')
+        return rune(rune_id=1, runeListData='all')
 
     def test_params(self, data):
         assert self.request_params['runeListData'] == 'all'
@@ -145,7 +147,7 @@ class TestSummonerSpellAll(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.summoner_spell_all(spelldata='cooldown')
+        return summoner_spell_all(spelldata='cooldown')
 
     def test_params(self, data):
         assert self.request_params['spelldata'] == 'cooldown'
@@ -156,7 +158,7 @@ class TestSummonerSpell(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.summoner_spell(summoner_spell_id=22, spelldata='cooldown')
+        return summoner_spell(summoner_spell_id=22, spelldata='cooldown')
 
     def test_params(self, data):
         assert self.request_params['spelldata'] == 'cooldown'
@@ -167,4 +169,4 @@ class TestVersions(BaseTestClass):
 
     @pytest.fixture()
     def data(self):
-        return static_api.versions()
+        return versions()

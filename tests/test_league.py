@@ -1,18 +1,19 @@
 # encoding: utf-8
 import pytest
 
-from lol_api.client import Client
+from lol_api.api.league import *
 from lol_api.data import api_versions
 from lol_api._utils import base_url
-from tests.utils import test_api_key, BaseTestClass
+from tests.utils import region_default, initialize_settings, BaseTestClass
 
-region_default = 'eune'
-
-league = Client(test_api_key, region_default, unlimited=True).League
 
 version = api_versions['league']
 api_url = '{}/api/lol/{}/{}/league/'.format(base_url, region_default, version)
 api_url = api_url.format(region_default)
+
+
+def setup_module(module):
+    initialize_settings()
 
 
 class TestBySummoners(BaseTestClass):
@@ -20,11 +21,11 @@ class TestBySummoners(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return league.by_summoners([123, 111])
+        return by_summoners([123, 111])
 
     def test_with_string(self):
         test_url = '{}by-summoner/123,222'.format(api_url)
-        league.by_summoners('123,222')
+        by_summoners('123,222')
         assert self.requested_url == test_url
 
 
@@ -33,11 +34,11 @@ class TestBySummonersEntry(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return league.by_summoners_entry([123, 111])
+        return by_summoners_entry([123, 111])
 
     def test_with_string(self):
         test_url = '{}by-summoner/123,222/entry'.format(api_url)
-        league.by_summoners_entry('123,222')
+        by_summoners_entry('123,222')
         assert self.requested_url == test_url
 
 
@@ -46,11 +47,11 @@ class TestByTeams(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return league.by_teams([123, 111])
+        return by_teams([123, 111])
 
     def test_with_string(self):
         test_url = '{}by-team/123,222'.format(api_url)
-        league.by_teams('123,222')
+        by_teams('123,222')
         assert self.requested_url == test_url
 
 
@@ -59,12 +60,12 @@ class TestByTeamsEntry(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return league.by_teams_entry([123, 111])
+        return by_teams_entry([123, 111])
 
     def test_with_string(self):
         test_url = '{}/api/lol/las/{}/league/by-team/123,222/entry'.format(base_url, version)
         test_url = test_url.format('las')
-        league.by_teams_entry('123,222', region='las')
+        by_teams_entry('123,222', region='las')
         assert self.requested_url == test_url
 
 
@@ -73,7 +74,7 @@ class TestChallenger(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return league.challenger()
+        return challenger()
 
 
 class TestMaster(BaseTestClass):
@@ -81,5 +82,5 @@ class TestMaster(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return league.master()
+        return master()
 

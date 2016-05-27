@@ -1,17 +1,20 @@
 # encoding: utf-8
 import pytest
 
-from lol_api.client import Client
+from lol_api.api.championmastery import *
 from lol_api.data import platforms
 from lol_api._utils import base_url
-from tests.utils import test_api_key, BaseTestClass
 
-region_default = 'eune'
+from tests.utils import BaseTestClass, initialize_settings, region_default
 
-championmastery = Client(test_api_key, region_default, unlimited=True).Championmastery
+
 platform = platforms[region_default]
 api_url = '{}/championmastery/location/{}/player/'.format(base_url, platform)
 api_url = api_url.format(region_default)
+
+
+def setup_module(module):
+    initialize_settings()
 
 
 class TestChampionMaster(BaseTestClass):
@@ -19,7 +22,7 @@ class TestChampionMaster(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return championmastery.champion_master(1, 1)
+        return champion_master(1, 1)
 
 
 class TestChampionPoints(BaseTestClass):
@@ -27,7 +30,7 @@ class TestChampionPoints(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return championmastery.champions_points(6)
+        return champions_points(6)
 
 
 class TestScore(BaseTestClass):
@@ -35,7 +38,7 @@ class TestScore(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return championmastery.score(2)
+        return score(2)
 
 
 class TestTopChampions(BaseTestClass):
@@ -43,7 +46,7 @@ class TestTopChampions(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return championmastery.top_champions(2, count=3)
+        return top_champions(2, count=3)
 
     def test_params(self, data):
         assert self.request_params['count'] == 3

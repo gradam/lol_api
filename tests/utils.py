@@ -1,7 +1,11 @@
 import pytest
 import requests
 
+from lol_api.settings import settings
+
 test_api_key = 'test_key'
+
+region_default = 'eune'
 
 
 class BaseTestClass:
@@ -53,4 +57,10 @@ def mock_request_get(monkeypatch):
 
 def _mock_request(*args, **kwargs):
     return MockRequest('some_data')
+
+
+def initialize_settings():
+    settings.API_KEY = test_api_key
+    settings.REGION_DEFAULT = region_default
+    settings.initialize_watcher(unlimited=True)
 

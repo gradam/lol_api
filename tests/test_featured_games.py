@@ -1,12 +1,12 @@
 # encoding: utf-8
 import pytest
 
-from lol_api.client import Client
-from tests.utils import test_api_key, BaseTestClass
+from lol_api.api.featured_games import *
+from tests.utils import region_default, initialize_settings, BaseTestClass
 
-region_default = 'euw'
 
-featured_games = Client(test_api_key, region_default, unlimited=True).FeaturedGames
+def setup_module(module):
+    initialize_settings()
 
 
 class TestFeaturedGames(BaseTestClass):
@@ -14,4 +14,4 @@ class TestFeaturedGames(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return featured_games.featured()
+        return featured()

@@ -1,26 +1,26 @@
 # encoding: utf-8
 import pytest
 
-from lol_api.client import Client
+from lol_api.api.stats import *
 from lol_api.data import api_versions
 from lol_api._utils import base_url
-from tests.utils import test_api_key, BaseTestClass
+from tests.utils import region_default, initialize_settings, BaseTestClass
 
-
-region_default = 'euw'
-stats = Client(test_api_key, region_default, unlimited=True).Stats
 
 version = api_versions['stats']
 api_url = '{}/api/lol/{}/{}/stats/'.format(base_url, region_default, version)
 api_url = api_url.format(region_default)
 
 
+def setup_module(module):
+    initialize_settings()
+
 class TestRanked(BaseTestClass):
     control_url = '{}by-summoner/123/ranked'.format(api_url)
 
     @pytest.fixture
     def data(self):
-        return stats.ranked(123)
+        return ranked(123)
 
 
 class TestSummary(BaseTestClass):
@@ -28,4 +28,4 @@ class TestSummary(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return stats.summary(123)
+        return summary(123)

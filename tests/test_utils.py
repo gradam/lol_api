@@ -3,11 +3,11 @@ from time import time
 import pytest
 import requests
 
-from lol_api._utils import check_response_code, count_request, get_champion_id, \
-    region_validation
-from lol_api._utils import RateLimitWatcher
+from lol_api._utils import check_response_code, count_request, get_champion_id, region_validation
+from lol_api.rate_limit_watcher import RateLimitWatcher
 from lol_api.exceptions import RateLimitExceededError, InvalidRegionError
 from lol_api.data import regions
+from lol_api.settings import settings
 
 
 def test_check_response_code():
@@ -59,13 +59,14 @@ class TestCountRequest:
     message = 'test'
     server = ()
 
+
     @count_request
     def api_func(self, region=None):
         return self.message
 
     @pytest.fixture(autouse=True)
     def set_watcher(self):
-        self.watcher = RateLimitWatcher(production=False)
+        settings.initialize_watcher(production=False, unlimited=False)
 
     def test_return(self):
         assert self.api_func(region='eune') == self.message
@@ -73,14 +74,14 @@ class TestCountRequest:
     def test_counter(self):
         self.api_func(region='euw')
         self.api_func(region='euw')
-        assert len(self.watcher.made_requests['euw']) == 2
+        assert len(settings.WATCHER.made_requests['euw']) == 2
 
     def test_rate_limit_exceeded_error_rise(self):
         for _ in range(10):
             self.api_func(region='eune')
         with pytest.raises(RateLimitExceededError):
             self.api_func(region='eune')
-        assert self.watcher.request_available('euw') is True
+        assert settings.WATCHER.request_available('euw') is True
 
 
 def test_get_champion_id():

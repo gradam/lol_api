@@ -6,7 +6,8 @@ from functools import partial
 
 import socketserver
 
-from lol_api._utils import RateLimitWatcher
+from lol_api.rate_limit_watcher import RateLimitWatcher
+from lol_api.settings import settings
 
 
 class RequestHandler(socketserver.BaseRequestHandler):
@@ -56,11 +57,11 @@ class RequestHandler(socketserver.BaseRequestHandler):
 
 class ApiDaemon:
     def __init__(self, port=8877, host='localhost', production=False, unlimited=False, log=True):
+        self.production = production
+        self.unlimited = unlimited
         self.api_keys = {}
         self.port = port
         self.host = host
-        self.production = production
-        self.unlimited = unlimited
         self.log = log
 
     def run(self):

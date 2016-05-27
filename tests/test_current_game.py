@@ -1,15 +1,16 @@
 # encoding: utf-8
 import pytest
 
-from lol_api.client import Client
+from lol_api.api.current_game import *
 from lol_api.data import platforms
 from lol_api._utils import base_url
-from tests.utils import test_api_key, BaseTestClass
-
-region_default = 'eune'
+from tests.utils import region_default, initialize_settings, BaseTestClass
 
 platform = platforms[region_default]
-current_game = Client(test_api_key, region_default, unlimited=True).CurrentGame
+
+
+def setup_module(module):
+    initialize_settings()
 
 
 class TestSpectatorGameInfo(BaseTestClass):
@@ -19,4 +20,4 @@ class TestSpectatorGameInfo(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return current_game.spectator_game_info(123)
+        return spectator_game_info(123)

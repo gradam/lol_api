@@ -8,14 +8,20 @@ import requests
 from lol_api.daemon import ApiDaemon
 from lol_api._utils import count_request
 from lol_api.exceptions import RateLimitExceededError
+from lol_api.settings import settings
 
-daemon = ApiDaemon(log=False)
-t = multiprocessing.Process(target=daemon.run)
+t = None
+
+
+def setup_module(module):
+    global t
+    settings.DAEMON_SERVER = ('localhost', 8877)
+    daemon = ApiDaemon(log=False)
+    t = multiprocessing.Process(target=daemon.run)
 
 
 class TestDaemon:
     message = 'test'
-    server = ('localhost', 8877)
     api_key = 'testkey'
 
     @classmethod
@@ -40,11 +46,12 @@ class TestDaemon:
         for _ in range(10):
             self.api_func(region='las')
 
-        self.api_key = 'testkey2'
+        settings.API_KEY = 'testkey2'
 
         for _ in range(10):
             self.api_func(region='las')
 
-    @classmethod
-    def teardown_class(cls):
-        t.terminate()
+
+def teardown_module(module):
+    t.terminate()
+    settings.DAEMON_SERVER = ()

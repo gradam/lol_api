@@ -1,18 +1,19 @@
 # encoding: utf-8
 import pytest
 
-from lol_api.client import Client
+from lol_api.api.team import *
 from lol_api.data import api_versions
-from lol_api._utils import base_url
-from tests.utils import test_api_key, BaseTestClass
+from lol_api._utils import get_region, get_data_from_api,  base_url
+from tests.utils import BaseTestClass, initialize_settings, region_default
 
-
-region_default = 'euw'
-team = Client(test_api_key, 'euw', unlimited=True).Team
 
 version = api_versions['team']
 api_url = '{}/api/lol/{}/{}/team/'.format(base_url, region_default, version)
 api_url = api_url.format(region_default)
+
+
+def setup_module(module):
+    initialize_settings()
 
 
 class TestBySummoners(BaseTestClass):
@@ -20,7 +21,7 @@ class TestBySummoners(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return team.by_summoners([333, 222])
+        return by_summoners([333, 222])
 
 
 class TestByTeams(BaseTestClass):
@@ -28,4 +29,4 @@ class TestByTeams(BaseTestClass):
 
     @pytest.fixture
     def data(self):
-        return team.by_teams('123,456')
+        return by_teams('123,456')
