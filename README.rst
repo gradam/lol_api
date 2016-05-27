@@ -30,13 +30,13 @@ specified in api call. eg.
 
 .. code:: python
 
-    from lol_api import Client
+    from lol_api.client import Client
     client = Client('my_api_key', 'eune')
 
 If you are going to use Daemon as a request watcher service pass tuple containing address and port.
 .. code:: python
 
-    from lol_api import Client
+    from lol_api.client import Client
     server_addr = ('localhost', 8877)
     client = Client('my_api_key', 'euw', server=server_addr)
 
@@ -56,7 +56,7 @@ To use Daemon for watching request count run him in another python instance.
 
 .. code:: python
 
-    from lol_api import ApiDaemon
+    from lol_api.daemon import ApiDaemon
     daemon = ApiDaemon()
     daemon.run()
 

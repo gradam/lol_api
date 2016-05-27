@@ -5,7 +5,7 @@ from time import sleep
 import pytest
 import requests
 
-from lol_api._daemon import ApiDaemon
+from lol_api.daemon import ApiDaemon
 from lol_api._utils import count_request
 from lol_api.exceptions import RateLimitExceededError
 

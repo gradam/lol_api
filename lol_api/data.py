@@ -3,6 +3,21 @@ from collections import defaultdict
 
 error_codes = defaultdict(lambda: 'Unknown error code', )
 
+api_versions = {
+    'champion': 'v1.2',
+    'current-game': 'v1.0',
+    'featured-games': 'v1.0',
+    'game': 'v1.3',
+    'league': 'v2.5',
+    'lol-static-data': 'v1.2',
+    'lol-status': 'v1.0',
+    'match': 'v2.2',
+    'matchlist': 'v2.2',
+    'stats': 'v1.3',
+    'summoner': 'v1.4',
+    'team': 'v2.4',
+}
+
 error_codes.update({
     204: 'no masteries found for given player id or player id and champion id combination.',
     400: 'Bad request',
@@ -76,17 +91,3 @@ queue_types = {
     'BILGEWATER_5x5': 'Black Market Brawlers games',
 }
 
-api_versions = {
-    'champion': 'v1.2',
-    'current-game': 'v1.0',
-    'featured-games': 'v1.0',
-    'game': 'v1.3',
-    'league': 'v2.5',
-    'lol-static-data': 'v1.2',
-    'lol-status': 'v1.0',
-    'match': 'v2.2',
-    'matchlist': 'v2.2',
-    'stats': 'v1.3',
-    'summoner': 'v1.4',
-    'team': 'v2.4',
-}

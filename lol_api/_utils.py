@@ -11,8 +11,6 @@ import requests
 from lol_api.data import error_codes, regions
 from lol_api.exceptions import RateLimitExceededError, InvalidRegionError
 
-
-directory = os.path.dirname(os.path.realpath(__file__))
 base_url = 'https://{}.api.pvp.net'
 
 

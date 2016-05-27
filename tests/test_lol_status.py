@@ -1,7 +1,7 @@
 # encoding: utf-8
 import pytest
 
-from lol_api import Client
+from lol_api.client import Client
 from tests.utils import test_api_key, BaseTestClass
 
 
