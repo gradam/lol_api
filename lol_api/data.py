@@ -90,4 +90,3 @@ queue_types = {
     'COUNTER_PICK': 'Nemesis games,',
     'BILGEWATER_5x5': 'Black Market Brawlers games',
 }
-
