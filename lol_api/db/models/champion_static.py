@@ -15,8 +15,8 @@ class ChampionStatic(Base):
     _ally_tips = Column(Text)
 
     stats = relationship('ChampionStats')
-
     tags = relationship('ChampionTags')
+    recomended = relationship('Images')
 
     @hybrid_property
     def enemy_tips(self):
@@ -74,4 +74,17 @@ class ChampionTags(Base):
     tank = Column(Boolean, default=False)
     marksman = Column(Boolean, default=False)
 
-    champion = relationship('ChampionStatic', )
+    champion = relationship('ChampionStatic')
+
+
+class Images(Base):
+    __tablename__ = 'champion_images'
+
+    w = Column(Integer)
+    full = Column(Text, primary_key=True)
+    sprite = Column(Text)
+    group = Column(Text)
+    h = Column(Integer)
+    y = Column(Integer)
+    x = Column(Integer)
+
