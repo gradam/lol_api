@@ -6,7 +6,7 @@ import pytest
 import requests
 
 from lol_api.daemon import ApiDaemon
-from lol_api._utils import count_request
+from lol_api.utils import count_request
 from lol_api.exceptions import RateLimitExceededError
 from lol_api.settings import settings
 

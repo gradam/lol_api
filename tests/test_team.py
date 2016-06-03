@@ -3,7 +3,7 @@ import pytest
 
 from lol_api.api.team import *
 from lol_api.data import api_versions
-from lol_api._utils import get_region, get_data_from_api,  base_url
+from lol_api.utils import get_region, get_data_from_api,  base_url
 from tests.utils import BaseTestClass, initialize_settings, region_default
 
 

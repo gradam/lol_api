@@ -1,5 +1,5 @@
 # encoding: utf-8
-from lol_api._utils import get_region, get_data_from_api,  count_request
+from lol_api.utils import get_region, get_data_from_api,  count_request
 
 
 @count_request

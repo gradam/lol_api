@@ -1,5 +1,5 @@
 # encoding: utf-8
-from lol_api._utils import get_region, get_data_from_api,  count_request, base_url
+from lol_api.utils import get_region, get_data_from_api,  count_request, base_url
 from lol_api.data import platforms
 
 api_url = '{}/observer-mode/rest/consumer/getSpectatorGameInfo'.format(base_url)

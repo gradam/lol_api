@@ -1,6 +1,6 @@
 # encoding: utf-8
 from lol_api.data import api_versions
-from lol_api._utils import get_region, get_data_from_api, base_url
+from lol_api.utils import get_region, get_data_from_api, base_url
 
 version = api_versions['lol-static-data']
 api_url = '{}/api/lol/static-data/'.format(base_url)

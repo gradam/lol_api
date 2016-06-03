@@ -1,6 +1,6 @@
 # encoding: utf-8
 # encoding: utf-8
-from lol_api._utils import get_data_from_api, get_region
+from lol_api.utils import get_data_from_api, get_region
 api_url = 'http://status.leagueoflegends.com/shards'
 
 

@@ -4,7 +4,7 @@ import pytest
 
 from lol_api.api.summoner import *
 from lol_api.data import api_versions
-from lol_api._utils import base_url
+from lol_api.utils import base_url
 from tests.utils import initialize_settings, region_default, BaseTestClass
 
 
